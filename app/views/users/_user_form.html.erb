@@ -1,0 +1,13 @@
+
+<table class ="noBorder">
+    <%= form_for @user do |f|%>
+
+          <tr><td class ="noBorder">name: </td><td class ="noBorder"><%= f.text_field :name%></td></tr>
+          <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= f.text_field :education%></td></tr>
+          <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= f.text_field :biography%></td></tr>
+          <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= f.text_field :website%></td></tr>
+          <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorder"><%= f.collection_select(:category, Category.all,:id,:title,{prompt: "Please Select A Category "})%></td></tr>
+          <tr><td class ="noBorder"></td><td class ="noBorder"><%= f.submit "Update"%></td></tr>
+
+    <%end%>
+</table>

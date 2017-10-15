@@ -1,0 +1,9 @@
+<table class ="noBorder">
+        <tr><td class ="noBorder">Name: </td><td class ="noBorder"><%= @user.name.capitalize%></td></tr>
+        <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= @user.education%></td></tr>
+        <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= @user.biography%></td></tr>
+        <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= @user.website%></td></tr>
+        <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorde@use."><%= @user.category%></td></tr>
+</table>
+
+<%=link_to "All Lectures", users_path%>
