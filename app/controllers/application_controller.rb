@@ -1,3 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+#overriding the default device method after_sign_in_path
+
+def after_sign_up_path_for(resource)
+   "http:/www.google.com"
+end
+
+
+  def after_sign_in_path_for(resource_or_scope)
+     user_path(current_user)
+   end
 end

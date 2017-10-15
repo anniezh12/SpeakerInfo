@@ -1,0 +1,9 @@
+<h1>Topics</h1>
+<ul>
+<% @topics.each do |topic|%>
+  <li><%= topic.title%>
+    <p><%= topic.description%>
+      <br>Delivered on :<%= topic.date_of_event%>
+      <%= button_to "Edit ",
+    </li>
+    <% end %>
