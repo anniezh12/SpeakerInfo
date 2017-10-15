@@ -1,0 +1,18 @@
+
+  <% @speakerarchives.each do |speaker|%>
+
+      <table>
+        <th><td>Speaker</td>
+            <td>Topic</td>
+            <td>Category</td>
+            <td>Date Conducted</td>
+        </th>
+  <tr>
+    <td><%= User.find(speaker.user_id).name%><td>
+    <td><%= User.find(speaker.user_id).name%><td>
+    <td><%= User.find(speaker.user_id).name%><td>
+    <td><%= User.find(speaker.user_id).name%><td>
+  </tr>
+  <% end %>
+</table>
+</tr>

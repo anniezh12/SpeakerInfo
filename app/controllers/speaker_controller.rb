@@ -1,0 +1,2 @@
+class SpeakerController < ApplicationController
+end
