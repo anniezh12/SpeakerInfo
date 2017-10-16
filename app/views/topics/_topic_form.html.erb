@@ -1,0 +1,11 @@
+
+<table class ="noBorder">
+    <%= form_for @topic do |f|%>
+
+          <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= f.text_field :title%></td></tr>
+          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= f.text_field :description%></td></tr>
+          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%= f.text_field :date_of_event%></td></tr>
+          <tr><td class ="noBorder"></td><td class ="noBorder"><%= f.submit "Create Lecture"%></td></tr>
+
+    <%end%>
+</table>

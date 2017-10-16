@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :categories
-  resources :speakerarchives
   resources :topics
+  resources :speakerarchives
+
   devise_for :users
   resources :users
-  #post "/users/sign_up", to: 'users#edit'
 
   root 'welcome#index'
 

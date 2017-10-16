@@ -11,17 +11,22 @@
      <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= @user.website if @user.website%></td></tr>
 
      <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorde@use."><%= @user.category if @user.category%></td></tr>
+     <br>
+     <tr>
+       <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>
+      
+       <td class ="noBorder"><%= button_to "Sign Out",destroy_user_session_path, method: :delete%></td>
 
-</table>
+       <% if @user.topics %>
+         <td class ="noBorder"><%= button_to "My Topics", topic_path,method: :get%></td>
+       <% end %>
 
  <% else %>
-    <b> Its highly recomended for a future speaker to create a profile!</b>
-    <%= button_to "Create A Profile", edit_user_path,method: :get%>
-  <% end%>
+     Its highly recomended for a future speaker to create a profile!</b>
 
-  <% if @user %>
-    <%=link_to "All Lectures", users_path%>
-    <%= button_to "Sign Out",destroy_user_session_path, method: :delete%>
-  <% else %>
-    <%= link_to "Home",user_path%>
-  <% end %>
+    <tr> <td  class ="noBorder"></td><td class ="noBorder"> <%= button_to "Create A Profile", edit_user_path,method: :get%></td>
+         <td class ="noBorder">   <%= button_to "Home",user_path,method: :get%></td>
+        <td class ="noBorder"></td>
+    </tr>
+  <% end%>
+  </table>

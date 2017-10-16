@@ -1,9 +1,14 @@
 <h1>Topics</h1>
 <ul>
+<%#  binding.pry %>
+  <%if @topics %>
 <% @topics.each do |topic|%>
   <li><%= topic.title%>
     <p><%= topic.description%>
       <br>Delivered on :<%= topic.date_of_event%>
-      <%= button_to "Edit ",
+      <%#= button_to "Edit ", topic%>
     </li>
     <% end %>
+    <%else%>
+    <h1>There are no topics at this time</h1>
+    <%end%>

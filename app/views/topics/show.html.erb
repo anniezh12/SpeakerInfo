@@ -1,0 +1,19 @@
+<h3>All Topics By <%= current_user.name%></h3>
+<ul>
+  <% current_user.topics.each do |topic|%>
+  <li>
+       <b><%= topic.title%></b>
+      <br>
+      <%= topic.description%>
+      <br>
+      Date :<%= topic.date_of_event%>
+
+  </li>
+  <% end %>
+</ul>
+<table class = "noBorder">
+  <tr>
+     <td class ="noBorder"><%=button_to "Back to Your Page",user_path(current_user),method: :get%></td>
+     <td class ="noBorder"><%= button_to"Create Topic", new_topic_path,method: :get%></td>
+ </tr>
+ </table>

@@ -15,17 +15,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-
    @user = User.find(current_user.id)
-#  binding.pry
   end
 
  def update
    @user = User.find(current_user.id)
    @user.update(user_params)
    @user.save
-
-  redirect_to @user
+   redirect_to user_path(@user)
  end
 
   def show
