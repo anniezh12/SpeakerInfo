@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 #overriding the default device method after_sign_in_path
 
 def after_sign_up_path_for(resource)
-   "http:/www.google.com"
+   new_user_path
 end
 
 
