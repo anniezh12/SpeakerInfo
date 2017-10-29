@@ -1,18 +1,17 @@
-
-  <% @speakerarchives.each do |speaker|%>
-
-      <table>
-        <th><td>Speaker</td>
-            <td>Topic</td>
-            <td>Category</td>
-            <td>Date Conducted</td>
-        </th>
-  <tr>
-    <td><%= User.find(speaker.user_id).name%><td>
-    <td><%= User.find(speaker.user_id).name%><td>
-    <td><%= User.find(speaker.user_id).name%><td>
-    <td><%= User.find(speaker.user_id).name%><td>
-  </tr>
-  <% end %>
+<table>
+    <tr>
+        <th>Speaker</th>
+        <th>Topic</th>
+        <th>Date</th>
+    </tr>
+    <% @speakerarchives.each do |speaker|%>
+      <% user = User.find(speaker.user_id)  %>
+      <% topic = Topic.find(speaker.topic_id) %>
+    <tr><% if user != nil && topic != nil%>
+      <td><%= user.name%><td>
+      <td><%= topic.title%><td>
+      <td><%= topic.date_of_event%><td>
+        <% end %>
+    </tr>
+    <% end %>
 </table>
-</tr>

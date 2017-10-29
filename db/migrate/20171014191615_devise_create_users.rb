@@ -2,6 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
       ## User otherInfo that will be used in the system
+      t.boolean :admin
       t.string :name
       t.string :education
       t.string :biography

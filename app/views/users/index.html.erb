@@ -1,7 +1,7 @@
-<H1>All Speakers</h1>
-  <% @users.each do |user| %>
+<H1>All About <%= current_user.name if current_user %></h1>
+  <!-- <% @users.each do |user| %>
   <br>
-   <%= user.id %>
+   <%= user.name %>
    <% if current_user && user.id == current_user.id %>
    <%= button_to "Edit", edit_user_path(user),method: :get%>
    <% else %>
@@ -9,5 +9,5 @@
    <% end %>
 
 
-   <%end %>
+   <%end %> -->
 <%= button_to "Sign Out",destroy_user_session_path, method: :delete%>

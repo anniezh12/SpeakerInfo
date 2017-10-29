@@ -1,4 +1,12 @@
 
+<% if !user_signed_in? %>
+		 <%= link_to "Sign In" , new_user_session_path,{:style => 'color: #ffffff', :class=> "css_class"} %>/
+		 <%= link_to "Sign Up", new_user_registration_path,{:style => 'color: #ffffff', :class=> "css_class"} %>
+ <% else %>
+		 <%= link_to "My Lectures", topics_path,{:style => 'color: #ffffff', :class=> "css_class"}  %>/
+		 <%= link_to "Add New Topic", new_topic_path,{:style => 'color: #ffffff', :class=> "css_class"} %>
+ <% end %>
+
 <div class="et_pb_text_inner">
 
 <h2 style="text-align: center;">Welcome to CSIX</h2>
@@ -20,10 +28,12 @@ gnp_request = {"slug" : "csix-connect", "color-set" : 1 , "campaign" : 54};
 </div>
 </div> <!-- .et_pb_text -->
 </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_2  et_pb_column_1">
-signout
-
 <div class="et_pb_text et_pb_module et_pb_bg_layout_dark et_pb_text_align_left  et_pb_text_1">
-
-
 <p><a href="https://www.linkedin.com/company/csix-connect"
- target="_blank"><img class="alignnone wp-image-446 csix-social-logo" src="http://csix.org/wp-content/uploads/2015/03/CSIX-LinkedIn.png" alt="CSIX-LinkedIn" /></a>      <a href="http://www.meetup.com/CSIX-Connect/" target="_blank"><img class="alignnone  wp-image-445 csix-social-logo" src="http://csix.org/wp-content/uploads/2015/03/meetuplogo.png" alt="meetuplogo" /></a>      <a href="https://www.facebook.com/csixconnect" target="_blank"><img class="alignnone  wp-image-444 csix-social-logo" src="http://csix.org/wp-content/uploads/2015/03/FB_FindUsOnFacebook-320-300x77.png" alt="FB_FindUsOnFacebook-320" srcset="http://csix.org/wp-content/uploads/2015/03/FB_FindUsOnFacebook-320-300x77.png 300w, http://csix.org/wp-content/uploads/2015/03/FB_FindUsOnFacebook-320.png 320w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>
+ target="_blank">
+ <img class="alignnone wp-image-446 csix-social-logo" src="http://csix.org/wp-content/uploads/2015/03/CSIX-LinkedIn.png" alt="CSIX-LinkedIn" /></a>
+  <a href="http://www.meetup.cofacebookm/CSIX-Connect/" target="_blank">
+    <img class="alignnone  wp-image-445 csix-social-logo" src="http://csix.org/wp-content/uploads/2015/03/meetuplogo.png" alt="meetuplogo" /></a>
+       <a href="https://www.facebook.com/csixconnect" target="_blank">
+         <img class="alignnone  wp-image-444 csix-social-logo" src="http://csix.org/wp-content/uploads/2015/03/FB_FindUsOnFacebook-320-300x77.png" alt="facebooklogo" width= 150 height=200 /></a></p>
+</div>

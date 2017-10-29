@@ -12,10 +12,15 @@
 <html lang="en-US">
 <!--<![endif]-->
 <head>
+
 	<meta charset="UTF-8" />
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="pingback" href="http://csix.org/xmlrpc.php" />
+
+
+
+
 
 		<!--[if lt IE 9]>
 	<script src="http://csix.org/wp-content/themes/Divi/js/html5.js" type="text/javascript"></script>
@@ -24,7 +29,7 @@
 </script><title>CSIX |</title>
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="CSIX &raquo; Feed" href="http://csix.org/feed/" />
+<link rel="alttopics/newernate" type="application/rss+xml" title="CSIX &raquo; Feed" href="http://csix.org/feed/" />
 <link rel="alternate" type="application/rss+xml" title="CSIX &raquo; Comments Feed" href="http://csix.org/comments/feed/" />
 <link rel="alternate" type="text/calendar" title="CSIX &raquo; iCal Feed" href="http://csix.org/events/?ical=1" />
 		<script type="text/javascript">
@@ -70,7 +75,7 @@ img.emoji {
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://csix.org/wp-includes/wlwmanifest.xml" />
 <meta name="generator" content="WordPress 4.8.2" />
 <link rel="canonical" href="http://csix.org/" />
-<link rel='shortlink' href='http://csix.org/' />
+<link rel='shortopics/newtlink' href='http://csix.org/' />
 <link rel="alternate" type="application/json+oembed" href="http://csix.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcsix.org%2F" />
 <link rel="alternate" type="text/xml+oembed" href="http://csix.org/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fcsix.org%2F&#038;format=xml" />
 <meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="http://csix.org"><link rel="https://theeventscalendar.com/" href="http://csix.org/wp-json/tribe/events/v1/" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type="text/css" id="custom-background-css">
@@ -82,15 +87,6 @@ body.custom-background { background-image: url("http://csix.org/wp-content/uploa
 	<div id="page-container">
 
 
-
-  <% if !user_signed_in? %>
-  <%= link_to "Sign In", new_user_session_path%>/
-  <%= link_to "Sign Up", new_user_registration_path%>
-	<% end %>
-
-
-
-
 		<header id="main-header" data-height-onload="66">
 			<div class="container clearfix et_menu_container">
 							<div class="logo_container">
@@ -98,7 +94,7 @@ body.custom-background { background-image: url("http://csix.org/wp-content/uploa
 					<a href="http://csix.org/">
 						<img src="http://csix.org/wp-content/uploads/2015/06/CSIX_CONNECT-small.png" alt="CSIX" id="logo" data-height-percentage="54" />
 					</a>
-
+topics/new
 				</div>
 				<div id="et-top-navigation" data-height="66" data-fixed-height="40">
 											<nav id="top-menu-nav">
@@ -200,8 +196,7 @@ body.custom-background { background-image: url("http://csix.org/wp-content/uploa
 
 				<article id="post-7" class="post-7 page type-page status-publish hentry">
 
-
-					<div class="entry-content">
+  			<div class="entry-content">
 					<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_pb_with_background et_section_regular">
 
 
@@ -216,7 +211,7 @@ body.custom-background { background-image: url("http://csix.org/wp-content/uploa
 				<div class="et_pb_container clearfix">
 					<div class="et_pb_slider_container_inner">
 
-						<div class="et_pb_slide_description">
+						<dtopics/newiv class="et_pb_slide_description">
 
 							<div class="et_pb_slide_content"></div>
 
@@ -243,6 +238,7 @@ e<strong class="tagline-letter">X</strong>change job leads.</h2>
 </div>
 </div>
 
+
 						</div> <!-- .et_pb_slide_description -->
 					</div>
 				</div> <!-- .et_pb_container -->
@@ -255,8 +251,6 @@ e<strong class="tagline-letter">X</strong>change job leads.</h2>
 
 
 			</div> <!-- .et_pb_section --><div class="et_pb_section  et_pb_section_1 et_pb_with_background et_section_regular">
-
-
 
 
 					<div class=" et_pb_row et_pb_row_2">
@@ -318,6 +312,6 @@ var et_pb_custom = {"ajaxurl":"http:\/\/csix.org\/wp-admin\/admin-ajax.php","ima
 		</script>
 
 <body>
-    <%= yield %>
+	    <%= yield %>
   </body>
 </html>

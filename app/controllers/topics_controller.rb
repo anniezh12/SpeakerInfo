@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
      before_action :currentuser
       def index
-        @topics = Topic.all
+        @topics = current_user.topics
       end
 
       def new
@@ -9,11 +9,17 @@ class TopicsController < ApplicationController
       end
 
       def create
-        @topic = current_user.topics.create(topic_params)
-        current_user.save
         #binding.pry
-        redirect_to topic_path(@topic)
-      end
+        if params[:topic][:title]!= ""  && params[:topic][:description]!= ""  && params[:topic][:date_of_event]!= ""
+            @topic = current_user.topics.create(topic_params)
+            current_user.save
+            Speakerarchive.create(user_id: current_user.id,topic_id: @topic.id).save
+            redirect_to topics_path
+        else
+            flash[:message] = "All fields must be filled"
+            redirect_to new_topic_path(@topic)
+        end
+       end
 
       def edit
         @topic = Topic.find(params[:id])
@@ -21,15 +27,20 @@ class TopicsController < ApplicationController
 
       def update
         @topic = Topic.find(params[:id])
-
         @topic.update(topic_params)
         @topic.save
-        redirect_to topic_path(@topic)
+        redirect_to topics_path
       end
 
       def show
+        #@topic = Topic.find(params[:id])
+      end
 
-        @topic = Topic.find_by(user_id: params[:user_id])
+      def destroy
+        binding.pry
+        @topic = Topic.find(params[:id])
+        @topic.delete
+        redirect_to root_path
       end
 
   private

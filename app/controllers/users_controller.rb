@@ -35,7 +35,6 @@ private
     params.require(:user).permit(:name,:education,:biography,:website,category:[])
   end
 
-
   def user_signin
     user_signed_in?
    end
