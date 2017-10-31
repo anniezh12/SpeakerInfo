@@ -37,10 +37,11 @@ class TopicsController < ApplicationController
       end
 
       def destroy
-        binding.pry
-        @topic = Topic.find(params[:id])
-        @topic.delete
-        redirect_to root_path
+        topic = Topic.find(params[:id])
+        spRecord = Speakerarchive.find_by(topic_id: topic.id, user_id: current_user.id)
+        topic.delete
+        spRecord.delete
+        redirect_to topics_path
       end
 
   private

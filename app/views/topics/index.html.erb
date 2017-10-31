@@ -1,8 +1,6 @@
-<h1>All Topics by <%= current_user.name%></h1>
+<p><h1>All Topics by <%= current_user.name%></h1>
 <ul>
-<%#  binding.pry %>
-<%= link_to "My Lectures", topics_path  %>/
-<%= link_to "Add New Topic", new_topic_path %>
+
   <%if @topics %>
 <% @topics.each do |topic|%>
 <br>
@@ -10,7 +8,7 @@
     <p><%= topic.description%>
       <br>Delivered on :<%= topic.date_of_event%>
 <p>
-      <div style="float:left"><%= button_to "Delete","/topics/#{topic.id}/destroy",method: :delete%>
+      <div style="float:left"><%= button_to "Delete",topic_path(topic),method: :delete%>
       </div>
       <div style="float:left"><%= button_to "Edit ", edit_topic_path(topic),method: :get%>
       </div>

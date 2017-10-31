@@ -6,7 +6,7 @@
     </tr>
     <% @speakerarchives.each do |speaker|%>
       <% user = User.find(speaker.user_id)  %>
-      <% topic = Topic.find(speaker.topic_id) %>
+      <% topic = Topic.find(speaker.topic_id)  %>
     <tr><% if user != nil && topic != nil%>
       <td><%= user.name%><td>
       <td><%= topic.title%><td>
