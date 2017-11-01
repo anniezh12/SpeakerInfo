@@ -317,6 +317,7 @@ var et_pb_custom = {"ajaxurl":"http:\/\/csix.org\/wp-admin\/admin-ajax.php","ima
 	<% if !user_signed_in? %>
 			 <%= link_to "Sign In" , new_user_session_path,{:style => 'color: #ffffff', :class=> "css_class"} %>/
 			 <%= link_to "Sign Up", new_user_registration_path,{:style => 'color: #ffffff', :class=> "css_class"} %>
+       <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
 	 <% else %>
 			 <%= link_to "My Lectures", topics_path,{:style => 'color: #ffffff', :class=> "css_class"}  %>/
 			 <%= link_to "Add New Topic", new_topic_path,{:style => 'color: #ffffff', :class=> "css_class"} %>/

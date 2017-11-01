@@ -1,20 +1,24 @@
 <p><h1>All Topics by <%= current_user.name%></h1>
 <ul>
 
-  <%if @topics %>
-<% @topics.each do |topic|%>
-<br>
-  <li><%= topic.title%>
-    <p><%= topic.description%>
-      <br>Delivered on :<%= topic.date_of_event%>
-<p>
-      <div style="float:left"><%= button_to "Delete",topic_path(topic),method: :delete%>
-      </div>
-      <div style="float:left"><%= button_to "Edit ", edit_topic_path(topic),method: :get%>
-      </div>
+<%if @topics %>
+    <% @topics.each do |topic|%>
       <br>
+    <li>
+        <%= topic.title%>
+        <p>
+        <%= topic.description%>
+        <br>Delivered on :<%= topic.date_of_event%>
+        <p>
+         <div style="float:left"><%= button_to "Delete",topic_path(topic),method: :delete%>
+         </div>
+         <div style="float:left"><%= button_to "Edit ", edit_topic_path(topic),method: :get%>
+         </div>
+         <br>
     </li>
-        <% end %>
-    <%else%>
-    <h1>There are no topics at this time</h1>
+          <% end %>
+
+<%else%>
+      <h1>There are no topics at this time</h1>
+
     <%end%>

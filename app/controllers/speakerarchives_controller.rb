@@ -1,8 +1,7 @@
 class SpeakerarchivesController < ApplicationController
 
 def index
-  #binding.pry
-  @speakerarchives = Speakerarchive.all
+    @speakerarchives = Speakerarchive.all
 end
 
 end
