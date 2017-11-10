@@ -1,17 +1,18 @@
-<table>
+<table border=1 width=100%>
     <tr>
         <th>Speaker</th>
         <th>Topic</th>
         <th>Date</th>
     </tr>
-    <% @speakerarchives.each do |speaker|%>
+    <% Speakerarchive.all.each do |speaker|%>
       <% user = User.find(speaker.user_id)  %>
-      <% topic = Topic.find(speaker.topic_id)  %>
-    <tr><% if user != nil && topic != nil%>
-      <td><%= user.name%><td>
-      <td><%= topic.title%><td>
-      <td><%= topic.date_of_event%><td>
-        <% end %>
+      <% topic =  Topic.find(speaker.topic_id) if speaker.topic_id %>
+    <tr>
+      <% if user != nil && topic != nil%>
+          <td>&nbsp;<%= link_to "#{user.name}", user_path(user)%></td>
+          <td>&nbsp;<%= link_to "#{topic.title}", topic_path(topic)%></td>
+          <td>&nbsp;<%= topic.date_of_event%></td>
+      <% end %>
     </tr>
     <% end %>
 </table>

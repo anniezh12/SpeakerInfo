@@ -2,12 +2,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
       ## User otherInfo that will be used in the system
-      t.boolean :admin
+      t.boolean :admin,  default: false
       t.string :name
       t.string :education
       t.string :biography
       t.string :website
-      t.string :category,  null: false, default: ""
+      t.string :category_id,  null: false, default: ""
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

@@ -1,33 +1,34 @@
-<h3>Hi <%= @user.email%></h3>
-<%= @user.category%>
-<table class ="noBorder">
- <% if @user &&  @user.checkallfields %>
 
-     <tr><td class ="noBorder">Name: </td><td class ="noBorder"><%= @user.name.capitalize if @user.name%></td></tr>
+    <table class ="noBorder">
 
-     <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= @user.education if @user.education%></td></tr>
+      <% if @user &&  @user.checkallfields? %>
 
-     <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= @user.biography if @user.biography%></td></tr>
+      <h3> <%= @user.name%></h3>
 
-     <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= @user.website if @user.website%></td></tr>
+      <h4><%= Category.find(@user.category_id).title if @user.category_id%></h4>
 
-     <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorde@use."><%= @user.category %></td></tr>
-     <br>
-     <tr>
-       <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>
+         <tr><td class ="noBorder">Name: </td><td class ="noBorder"><%= @user.name.capitalize if @user.name%></td></tr>
 
-       <td class ="noBorder"><%= button_to "Sign Out",destroy_user_session_path, method: :delete%></td>
+         <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= @user.education if @user.education%></td></tr>
 
-       <% if @user.topics %>
-         <td class ="noBorder"><%= button_to "My Topics", topic_path,method: :get%></td>
-       <% end %>
+         <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= @user.biography if @user.biography%></td></tr>
 
- <% else %>
-     Its highly recomended for a future speaker to create a profile!</b>
+         <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= @user.website if @user.website%></td></tr>
+      <%#=binding.pry%>
+         <tr><td class ="noBorder">Speaker Category:&nbsp;&nbsp; </td><td class ="noBorde@use."><b><%= Category.find(@user.category_id).title if @user.category_id != nil %></b></td></tr>
+         <br>
+         <tr>
+           <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>
 
-    <tr> <td  class ="noBorder"></td><td class ="noBorder"> <%= button_to "Create A Profile", edit_user_path,method: :get%></td>
-         <td class ="noBorder">   <%= button_to "Home",user_path,method: :get%></td>
-        <td class ="noBorder"></td>
-    </tr>
-  <% end%>
-  </table>
+           <td class ="noBorder"><%= button_to "Sign Out",destroy_user_session_path, method: :delete%></td>
+
+          
+      <% else %>
+         Its highly recomended for a future speaker to create a profile!</b>
+
+        <tr> <td  class ="noBorder"></td><td class ="noBorder"> <%= button_to "Create A Profile", edit_user_path,method: :get%></td>
+             <td class ="noBorder">   <%= button_to "Home",user_path,method: :get%></td>
+            <td class ="noBorder"></td>
+        </tr>
+      <% end%>
+      </table>

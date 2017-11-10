@@ -6,7 +6,12 @@
           <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= f.text_field :education%></td></tr>
           <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= f.text_field :biography%></td></tr>
           <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= f.text_field :website%></td></tr>
-          <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorder"><%= f.collection_select(:category, Category.all,:id,:title,{prompt: "Please Select A Category "})%></td></tr>
+          <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorder"><%= f.collection_select(:category_id, Category.all,:id,:title,{prompt: "Please Select A Category "})%></td></tr>
+
+          <tr><td class ="noBorder">New Category: </td><td class ="noBorder">
+          <%#= f.fields_for :categories, @user.categories.build do |categories_fields| %>
+           <%#= categories_fields.text_field :name %>
+           <%# end %><%#= f.text_field :new_category})%></td></tr>
           <tr><td class ="noBorder"></td><td class ="noBorder"><%= f.submit "Create Profile"%></td></tr>
 
     <%end%>

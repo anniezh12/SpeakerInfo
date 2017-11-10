@@ -1,29 +1,13 @@
-<h3>Topics By <%= current_user.name%></h3>
-<ul>
+<h3>Topic : <%= @topic.title %></h3>
 
-   <%=  "You have no topics at the moment. But you can add One!" if current_user.topics.count == 0 %>
-
-     <% if current_user.topics %>
-        <% current_user.topics.each do |topic| %>
-
-    <li>
-          <br><b><%= topic.title%></b>
+     <%= @topic.description%>
           <br>
-          <%= topic.description%>
-          <br>
-          <b>  D<li>ate: </b> <%= topic.date_of_event%><br>
-          <b> Speaker :</b><%= current_user.name%>
-      <%=button_to "Delete",topic_path(topic),method: :delete%>
-    </li>
-     <% end %>
-
-     <% end %>
-
-
-</ul>
-<table class = "noBorder">
-  <tr>
-     <td class ="noBorder"><%=button_to "Back to Your Page",user_path(current_user),method: :get%></td>
-     <td class ="noBorder"><%= button_to"Create Topic", new_topic_path,method: :get%></td>
- </tr>
- </table>
+          <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
+           <% #binding.pry%>
+          <b> Speaker :</b><%= User.find(@topic.user_id).name%>
+  <% if @topic.user_id == current_user.id %>
+     <%= button_to "Edit",edit_topic_path,method: :get%>
+     <%= button_to "Delete",topic_path(@topic),method: :delete%>
+  <% else %>
+     <%= button_to "Home", root_path,method: :get%>
+  <% end %>
