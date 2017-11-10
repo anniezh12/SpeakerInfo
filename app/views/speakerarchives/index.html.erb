@@ -3,6 +3,7 @@
         <th>Speaker</th>
         <th>Topic</th>
         <th>Date</th>
+        <th>Category</th>
     </tr>
     <% Speakerarchive.all.each do |speaker|%>
       <% user = User.find(speaker.user_id)  %>
@@ -12,6 +13,8 @@
           <td>&nbsp;<%= link_to "#{user.name}", user_path(user)%></td>
           <td>&nbsp;<%= link_to "#{topic.title}", topic_path(topic)%></td>
           <td>&nbsp;<%= topic.date_of_event%></td>
+          <!-- in the following statment a has_many through association is used to getcategory -->
+          <td>&nbsp;<%= Category.find(user.category_id).title if user.category_id%></td>
       <% end %>
     </tr>
     <% end %>
