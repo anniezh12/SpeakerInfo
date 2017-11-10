@@ -1,8 +1,15 @@
 class TopicsController < ApplicationController
      before_action :currentuser
       def index
-        @user = current_user
-        @topics = current_user.topics
+
+        #following if structre works when nested routes are supplied -->
+         if params[:user_id]
+           @user = User.find(params[:user_id])
+           @topics = User.find(params[:user_id]).topics
+          else
+           @user = current_user
+           @topics = current_user.topics
+         end
       end
 
       def new
