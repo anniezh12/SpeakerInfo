@@ -2,8 +2,8 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-#require 'omniauth-google-oauth2'
-  config.omniauth :google_oauth2, '974523462560-8aig00bbk38jh58h4lgqq4v6b9i01h9e.apps.googleusercontent.com', 'FNpwR7_H9lYs5tuHvTXZUBec', {}
+  require 'omniauth-google-oauth2'
+  config.omniauth :google_oauth2, "247241101405-8ok9jljfkmlfnrqsi17dlktf04uclk1b.apps.googleusercontent.com", "TNXjg3VzM853HQGTrgk_kD3G", {access_type: "offline", approval_prompt: ""}
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

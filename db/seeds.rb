@@ -1,23 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-  # User.create(name:'Aniqa',email:'aniqa@yahoo.com',education:'Masters of Computer Science',website:'aniqaelahi.com',category:'Motivationsl')
-  #  User.create(name:'Zeeshan',email:'zeeshan@yahoo.com',education:'Masters of Computer Science',website:'Zeeshan.com',category:'Life Coach')
-  #  User.create(name:'Saad',email:'saad@yahoo.com',education:'Masters of Engineering',website:'saad.com',category:'Recruiter')
 
-   Category.create(title: 'Motivational')
-   Category.create(title: 'Interview Preparation')
-   Category.create(title: 'Recruiter')
-   Category.create(title: 'Life Coach')
-   Category.create(title: 'Enterpreneur')
-  #  Topic.create(title: 'How to get offensive in Interview',description:'learning life skills for how to become offensive. Daily life strategies',date_of_event:'01/17/2016')
-  #  Topic.create(title: 'Basic Interview questions',description:'Basic Interview questions',date_of_event:'02/5/2016')
-  #  Topic.create(title: 'You Can do it',description:'You Can do it. Daily life strategies',date_of_event:'02/15/2016')
-  #  Topic.create(title: 'Myths about Resumes',description:'Myths about Resumes does it work?',date_of_event:'02/22/2016')
-  #  Topic.create(title: 'Following up',description:'Following up after an interview',date_of_event:'03/5/2016')
-  #  Topic.create(title: 'When to start a career',description:'Is it right time to start a career?',date_of_event:'03/12/2016')
-  #  Topic.create(title: 'How to build a linkedin profile',description:'Does social media profiles work? Daily life strategies',date_of_event:'03/27/2016')
+Category.create(title: 'Motivational',description: 'A get-up-and-go, you-can-do-it speaker who gets your group enthused about themselves and your company, while providing a message that is thoughtful and useful.  A motivator can leave an impression that will last for months---sometimes years.
+',prime_category: 'Keynote')
+Category.create(title: 'Insperational',description:'A speaker who has succeeded in life despite a variety of setbacks and handicaps, or has accomplished something against great odds. Such a speaker will tell a life story which can inspire your audience toward greater goals and accomplishments.
+',prime_category: 'Professional')
+Category.create(title: 'Educational',description: 'A content speaker who can talk on specific subjects in an educational, informative, exciting and often entertaining manner. Any of the subjects that can be taught in a seminar or workshop can be covered in a keynote address. However, not all seminar speakers make exciting keynoters.
+',prime_category:'Keynote')
+
+Category.create(title: 'Celebrity',description: 'A well-known personality from the world of politics, professional sports, popular and successful businesses, the media, entertainment, or the arts who speak about their own specialties; or regales your audiences with great ideas or specific information. Celebrities are usually invited to speak because of their name value. They add clout, interest and glamour to a meeting. Many celebrities have a poignant message as well as being excellent speakers.',prime_category: 'Keynote')
+Category.create(title: 'Seminar Leader',description:'Any expert on a particular topic or subject whose objective is to educate and/or motivate. Their delivery is usually less dramatic and more conversational than that of the keynoter and the longer (1-3 hours) format allows for more interaction between the presenter and the audience. Seminar leaders who use handouts, slides and overhead projection can easily work with a relatively large audience. Many professional keynote speakers also make excellent seminar leaders.',prime_category:'Professional')

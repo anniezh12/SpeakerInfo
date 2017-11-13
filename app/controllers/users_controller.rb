@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+     @user.category.build()#nested attributes
   end
 
   def create
@@ -15,9 +16,11 @@ class UsersController < ApplicationController
 
   def edit
    @user = User.find(current_user.id)
+     @user.category = Category.create()
   end
 
    def update
+     binding.pry
      @user = User.find(current_user.id)
      @user.update(user_params)
      @user.save
@@ -31,7 +34,11 @@ class UsersController < ApplicationController
 private
 
     def user_params
-      params.require(:user).permit(:name,:education,:biography,:website,:category_id)
+          if (params[:category_id] != nil)
+          params.require(:user).permit(:name,:education,:biography,:website,:category_id)
+          else
+          params.require(:user).permit(:name,:education,:biography,:website,category_attributes: [:title,:description,:prime_category])
+          end
     end
 
     def user_signin

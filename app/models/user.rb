@@ -4,7 +4,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
     devise :omniauthable, omniauth_providers: [:google_oauth2]
    has_many :topics
+   # accept_nester_attributes_for :category(which has a title,description,sup_category)
    belongs_to :category, optional: true #will help save the user upon signing up other wise it give an error of category must exist
+   accepts_nested_attributes_for :category
    has_many :speakerarchives, through: :topics
 
  def is_admin?
