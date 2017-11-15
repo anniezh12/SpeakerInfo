@@ -16,13 +16,14 @@ class UsersController < ApplicationController
 
   def edit
    @user = User.find(current_user.id)
-     @user.category = Category.create()
+   @user.category = Category.create()
   end
 
    def update
-     binding.pry
+#
      @user = User.find(current_user.id)
      @user.update(user_params)
+      binding.pry
      @user.save
      redirect_to user_path(@user)
    end
@@ -34,7 +35,8 @@ class UsersController < ApplicationController
 private
 
     def user_params
-          if (params[:category_id] != nil)
+
+          if (params[:user][:category_id] != nil)
           params.require(:user).permit(:name,:education,:biography,:website,:category_id)
           else
           params.require(:user).permit(:name,:education,:biography,:website,category_attributes: [:title,:description,:prime_category])

@@ -14,15 +14,19 @@
          <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= @user.biography if @user.biography%></td></tr>
 
          <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= @user.website if @user.website%></td></tr>
+         <%= category = Category.find(@user.category_id) if @user.category_id != nil %>
       <%#=binding.pry%>
-         <tr><td class ="noBorder">Speaker Category:&nbsp;&nbsp; </td><td class ="noBorde@use."><b><%= Category.find(@user.category_id).title if @user.category_id != nil %></b></td></tr>
+         <tr><td class ="noBorder">Speaker Category:&nbsp;&nbsp; </td><td class ="noBorde@use."><%= category.title if category%><b></b></td></tr>
+             <tr><td class ="noBorder"> Category Description:&nbsp;&nbsp; </td><td class ="noBorde@use."><%= category.description if category%><b></b></td></tr>
+                      <tr><td class ="noBorder">Prime Category:&nbsp;&nbsp; </td><td class ="noBorde@use."><%= category.prime_category if category%><b></b></td></tr>
+
          <br>
          <tr>
            <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>
 
            <td class ="noBorder"><%= button_to "Sign Out",destroy_user_session_path, method: :delete%></td>
 
-          
+
       <% else %>
          Its highly recomended for a future speaker to create a profile!</b>
 

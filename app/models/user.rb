@@ -6,12 +6,17 @@ class User < ApplicationRecord
    has_many :topics
    # accept_nester_attributes_for :category(which has a title,description,sup_category)
    belongs_to :category, optional: true #will help save the user upon signing up other wise it give an error of category must exist
-   accepts_nested_attributes_for :category
+   #accepts_nested_attributes_for :category
    has_many :speakerarchives, through: :topics
 
- def is_admin?
-   self.admin
- end
+
+    def category_attributes=(category_attributes)
+        self.category.build(category_attributes)
+     end
+
+     def is_admin?
+       self.admin
+     end
 
 
 
@@ -40,8 +45,7 @@ class User < ApplicationRecord
             provider:access_token.provider,
             email: data["email"],
             uid: access_token.uid ,
-            password: Devise.friendly_token[0,20],
-          )
+            password: Devise.friendly_token[0,20],)
         end
      end
   end

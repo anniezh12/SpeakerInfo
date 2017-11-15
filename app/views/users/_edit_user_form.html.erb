@@ -8,10 +8,10 @@
           <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= f.text_field :website%></td></tr>
           <tr><td class ="noBorder">Speaker Category: </td><td class ="noBorder"><%= f.collection_select(:category_id, Category.all,:id,:title,{prompt: "Please Select A Category "})%></td></tr>
 
-<br>
+<br><%#=binding.pry%>
             <tr><td>Or add a new Category </td></tr>
             <%= f.fields_for :category do |category| %>
-                  <tr><td class ="noBorder">Title: </td><td class ="noBorder"></label><%= category.text_field :tiile %></td></tr>
+                  <tr><td class ="noBorder">Title: </td><td class ="noBorder"></label><%= category.text_field :title %></td></tr>
                    <tr><td class ="noBorder">Description:</td><td class ="noBorder"><%= category.text_field :description %></td></tr>
                    <tr><td class ="noBorder">Prime Category: </td><td class ="noBorder"><%= category.text_field :prime_category  %></td></tr>
             <% end %>
