@@ -3,23 +3,23 @@
 
       <% if @user &&  @user.checkallfields? %>
 
-      <h3> <%= @user.name%></h3>
+      <h3> <%= @user.name.capitalize%></h3>
 
-      <h4><%= Category.find(@user.category_id).title if @user.category_id%></h4>
-
-         <tr><td class ="noBorder">Name: </td><td class ="noBorder"><%= @user.name.capitalize if @user.name%></td></tr>
+       <% category = Category.find(@user.category_id) if @user.category_id != nil %>
 
          <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= @user.education if @user.education%></td></tr>
 
          <tr><td class ="noBorder">Biography: </td><td class ="noBorder"><%= @user.biography if @user.biography%></td></tr>
 
-         <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%= @user.website if @user.website%></td></tr>
-         <%= category = Category.find(@user.category_id) if @user.category_id != nil %>
-      <%#=binding.pry%>
+         <tr><td class ="noBorder">Web site: </td><td class ="noBorder"><%=link_to @user.website,"http://#{@user.website}"%></td></tr>
+
+      <% if category  != nil%>
          <tr><td class ="noBorder">Speaker Category:&nbsp;&nbsp; </td><td class ="noBorde@use."><%= category.title if category%><b></b></td></tr>
              <tr><td class ="noBorder"> Category Description:&nbsp;&nbsp; </td><td class ="noBorde@use."><%= category.description if category%><b></b></td></tr>
                       <tr><td class ="noBorder">Prime Category:&nbsp;&nbsp; </td><td class ="noBorde@use."><%= category.prime_category if category%><b></b></td></tr>
-
+              <% else %>
+              <%= button_to "Add Category",new_category_path %>
+              <% end %>
          <br>
          <tr>
            <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>

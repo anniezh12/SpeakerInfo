@@ -1,1 +1,11 @@
-<%= @category.title%>
+<% if @category.title != ""%>
+<h3><b><%= @category.title%></b></h3>
+<p>
+<%= @category.description%>
+
+<p>
+<b>Prime Category : <%= @category.prime_category%></b>
+<% end %>
+<br>
+
+<%= link_to "Edit",edit_category_path(@category)%>

@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 #
      @user = User.find(current_user.id)
      @user.update(user_params)
-      binding.pry
      @user.save
      redirect_to user_path(@user)
    end
