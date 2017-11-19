@@ -22,10 +22,11 @@
               <% end %>
          <br>
          <tr>
+           <% if user_signed_in? && @user.id == current_user.id %>
            <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>
 
            <td class ="noBorder"><%= button_to "Sign Out",destroy_user_session_path, method: :delete%></td>
-
+            <% end %>
 
       <% else %>
          Its highly recomended for a future speaker to create a profile!</b>
