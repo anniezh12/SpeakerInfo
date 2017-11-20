@@ -4,7 +4,7 @@
 
           <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= f.text_field :title%></td></tr>
           <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= f.text_field :description%></td></tr>
-          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%= f.text_field :date_of_event%></td></tr>
+          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%= f.text_field :date_of_event, data:{provide: 'datepicker'}%></td></tr>
           <tr><td class ="noBorder"></td><td class ="noBorder"><%= f.submit %></td></tr>
 
     <%end%>

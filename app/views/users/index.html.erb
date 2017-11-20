@@ -1,13 +1,14 @@
-<H1>All About <%= current_user.name if current_user %></h1>
-  <!-- <% @users.each do |user| %>
-  <br>
-   <%= user.name %>
-   <% if current_user && user.id == current_user.id %>
-   <%= button_to "Edit", edit_user_path(user),method: :get%>
-   <% else %>
-   <%= button_to "More About Speaker", user_path(user),method: :get%>
-   <% end %>
-
-
-   <%end %> -->
-<%= button_to "Sign Out",destroy_user_session_path, method: :delete%>
+<H1>Speeakers</h1>
+  <% User.all.each do |user| %>
+  <table>
+   <tr><td><%= user.name %></td>
+   <td>&nbsp;&nbsp;&nbsp;
+         <% if current_user && user.id == current_user.id %>
+         <%= link_to "More About Speaker", user_path(user),method: :get%>/
+         <%= link_to "Edit", edit_user_path(user),method: :get%>
+         <% else %>
+         <%= link_to "More About Speaker", user_path(user),method: :get%>
+         <% end %>
+    </td>
+   <%end %>
+ </table>

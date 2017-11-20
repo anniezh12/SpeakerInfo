@@ -3,7 +3,7 @@
      <%= @topic.description%>
           <br>
           <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
-           <% #binding.pry%>
+           <% binding.pry%>
           <b> Speaker :</b><%= User.find(@topic.user_id).name%>
   <% if @topic.user_id == current_user.id %>
      <%= button_to "Edit",edit_topic_path,method: :get%>

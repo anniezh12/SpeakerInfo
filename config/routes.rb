@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show,:index] do
     # nested resource for topics
-    resources :topics, only: [:show, :index]
+    resources :topics, only: [:new,:show, :index]
   end
 
  resources :topics
