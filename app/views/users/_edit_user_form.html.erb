@@ -10,10 +10,11 @@
 
 <br><%#=binding.pry%>
             <tr><td>Or add a new Category </td></tr>
-            <%= f.fields_for :category do |category| %>
-                  <tr><td class ="noBorder">Title: </td><td class ="noBorder"></label><%= category.text_field :title %></td></tr>
-                   <tr><td class ="noBorder">Description:</td><td class ="noBorder"><%= category.text_field :description %></td></tr>
-                   <tr><td class ="noBorder">Prime Category: </td><td class ="noBorder"><%= category.text_field :prime_category  %></td></tr>
+            <!-- in the fields_for if a new Category is not created (Category.new) these fields will noyt appear-->
+            <%= f.fields_for :category, Category.new do |category_fields| %>
+                  <tr><td class ="noBorder">Title: </td><td class ="noBorder"></label><%= category_fields.text_field :title %></td></tr>
+                   <tr><td class ="noBorder">Description:</td><td class ="noBorder"><%= category_fields.text_field :description %></td></tr>
+                   <tr><td class ="noBorder">Prime Category: </td><td class ="noBorder"><%= category_fields.text_field :prime_category  %></td></tr>
             <% end %>
           </td></tr>
           <tr><td class ="noBorder"></td><td class ="noBorder"><%= f.submit "Create Profile"%></td></tr>

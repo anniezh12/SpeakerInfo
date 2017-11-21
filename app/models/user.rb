@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
 
     def category_attributes=(category_attributes)
-        self.category.build(category_attributes)
-     end
+      self.category.build(category_attributes)
+    end
 
      def is_admin?
        self.admin

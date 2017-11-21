@@ -3,8 +3,8 @@
      <%= @topic.description%>
           <br>
           <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
-           <% binding.pry%>
-          <b> Speaker :</b><%= User.find(@topic.user_id).name%>
+           <% speaker = User.find(@topic.user_id)%>
+          <b> Speaker :</b><%= link_to speaker.name,user_path(speaker)%>
   <% if @topic.user_id == current_user.id %>
      <%= button_to "Edit",edit_topic_path,method: :get%>
      <%= button_to "Delete",topic_path(@topic),method: :delete%>

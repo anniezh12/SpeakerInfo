@@ -5,7 +5,7 @@
 
       <h3> <%= @user.name.capitalize%></h3>
 
-       <% category = Category.find(@user.category_id) if @user.category_id != nil %>
+       <% category = Category.find(@user.category_id)  %>
 
          <tr><td class ="noBorder">Education:</td><td class ="noBorder"> <%= @user.education if @user.education%></td></tr>
 
