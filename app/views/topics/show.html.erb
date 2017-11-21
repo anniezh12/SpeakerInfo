@@ -4,7 +4,7 @@
           <br>
           <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
            <% speaker = User.find(@topic.user_id)%>
-          <b> Speaker :</b><%= link_to speaker.name,user_path(speaker)%>
+          <b> Speaker  :</b><%= link_to speaker.name,user_path(speaker)%>
   <% if @topic.user_id == current_user.id %>
      <%= button_to "Edit",edit_topic_path,method: :get%>
      <%= button_to "Delete",topic_path(@topic),method: :delete%>
