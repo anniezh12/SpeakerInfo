@@ -1,5 +1,6 @@
 class Topic < ApplicationRecord
 
   belongs_to :user
-  #has_many :speakerarchives, through: :user
+  validates :title, presence: true
+  validates :title,uniqueness: true
 end

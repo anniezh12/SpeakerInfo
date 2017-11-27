@@ -1,5 +1,5 @@
 class Speakerarchive < ApplicationRecord
   has_many :users
   has_many :topics
-  has_many :categories, through: :topics
+  has_many :categories, through: :user
 end
