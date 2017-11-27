@@ -5,7 +5,8 @@ Welcome to SpeakerInfo. This gem is designed for a non profit organization which
 ## Getting Startd
 
 Cloning the gem (into your your local environment)
-     1. go to https://github.com/anniezh12/SpeakerInfo
+
+     1. go to https://github.com/anniezh12/SpeakerInfo  
      2. Fork the repo
      3. Clone with SSH (copy link)
      4. Back in your terminal
@@ -22,25 +23,23 @@ ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
 
 * Database creation
 
-     1. Run rake db:migrate
-     2. Run rake db:seed   
+   1. Run rake db:migrate
+   2. Run rake db:seed   
 
 ## Integrating SpeakerInfo Into Your Application
 
-In the Gemfile of your application add the following line of
+In the Gemfile of your application add the following line 
+
+
   gem 'SpeakerInfo'
 
-
-run 'bundle install'
+  run 'bundle install'
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/cjbrock/planets_star_wars. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/anniezh12/SpeakerInfo. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-## Code of Conduct
-
-Everyone interacting in the PlanetsStarWars project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/cjbrock/planets_star_wars/blob/master/CODE_OF_CONDUCT.md).
