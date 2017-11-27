@@ -10,15 +10,19 @@ class CategoriesController < ApplicationController
 
     def create
       @category = Category.new(category_params)
-      @category.save
-      redirect_to categories_path
+      if @category.valid?
+       @category.save
+       redirect_to @category
+     else
+       render :new
+     end
     end
 
     def show
       @category = Category.find(params[:id])
     end
 
-    
+
 
     private
 
