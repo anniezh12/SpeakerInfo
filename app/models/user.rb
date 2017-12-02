@@ -23,27 +23,29 @@ class User < ApplicationRecord
 
      def self.user_with_most_lectures
        lecture_count = 0;
-
-       User.all.each {|user| if user.topics.count > lecture_count
-                               lecture_count = user.topics.count
-                                user_with_most_lectures = user.id
-                                end
-                      }
-                    return user_with_most_lectures
-
-
+       user_with_most_lectures = 2;
+        User.all.each {|user| if (user.topics.count >= lecture_count)
+                                lecture_count = user.topics.count
+                                 user_with_most_lectures = user.id
+                               else
+                                  lecture_count
+                              end }
+                             return user_with_most_lectures
       end
+
 
       def self.user_with_least_lectures
 
               lecture_count = 0;
-
-        User.all.each {|user| if user.topics.count < lecture_count
+              user_with_least_lectures = 1;
+        User.all.each {|user| if user.topics.count <= lecture_count
                         lecture_count = user.topics.count
                          user_with_least_lectures = user.id
-                         end
-                       }
-                    
+                       else
+                         lecture_count
+                       end}
+              return user_with_least_lectures
+
        end
 
   def checkallfields?

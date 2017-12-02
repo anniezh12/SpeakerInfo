@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   #get '/topics/:id/destroy',to: 'topics#destroy'
   resources :speakerarchives
 
-
+get '/users/most_lectures', to: 'users#user_with_most_lectures'
+get '/users/least_lectures', to: 'users#user_with_least_lectures'
 # devise_for :users should come before resources :users
 
   resources :users
-  get '/users/most_lectures', to: 'users#user_with_most_lectures'
+
 
   resources :users, only: [:show,:index] do
     # nested resource for topics
