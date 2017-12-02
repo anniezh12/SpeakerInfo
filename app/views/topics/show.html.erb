@@ -1,13 +1,21 @@
-<h3>Topic : <%= @topic.title %></h3>
 
-     <%= @topic.description%>
-          <br>
-          <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
-           <% speaker = User.find(@topic.user_id)%>
-          <b> Speaker  :</b><%= link_to speaker.name,user_path(speaker)%>
-  <% if @topic.user_id == current_user.id %>
-     <%= button_to "Edit",edit_topic_path,method: :get%>
-     <%= button_to "Delete",topic_path(@topic),method: :delete%>
-  <% else %>
-     <%= button_to "Home", root_path,method: :get%>
-  <% end %>
+<% if @topic %>
+        <h3>Topic : <%= @topic.title  %></h3>
+
+             <%= @topic.description%>
+                  <br>
+                  <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
+                   <% speaker = User.find(@topic.user_id)%>
+                  <b> Speaker  :</b><%= link_to speaker.name,user_path(speaker)%>
+
+              <% if @topic.user == current_user %>
+                 <%= button_to "Edit",edit_topic_path,method: :get%>
+                 <%= button_to "Delete",topic_path(@topic),method: :delete%>
+              <% else %>
+                 <%= button_to "Home", root_path,method: :get%>
+              <% end %>
+
+<% else %>
+
+        Sorry, topic id doesnt match out Record
+<% end %>

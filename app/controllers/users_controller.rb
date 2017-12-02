@@ -29,6 +29,14 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+     def user_with_most_lectures
+       @user = User.find(User.user_with_most_lectures)
+     end
+
+     def user_with_least_lectures
+       binding.pry
+       @user = User.find(User.user_with_least_lectures)
+     end
 private
 
     def user_params

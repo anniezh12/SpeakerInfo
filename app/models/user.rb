@@ -6,9 +6,10 @@ class User < ApplicationRecord
    has_many :topics
    # accept_nester_attributes_for :category(which has a title,description,sup_category)
    belongs_to :category, optional: true #will help save the user upon signing up other wise it give an error of category must exist
-   #accepts_nested_attributes_for :category
-   has_many :speakerarchives, through: :topics
 
+   #has_many :speakerarchives, through: :topics
+
+ #accepts_nested_attributes_for :category, is actually equivalent to the following custom method
 
     def category_attributes=(category_attributes)
         c = Category.create(category_attributes)
@@ -20,7 +21,30 @@ class User < ApplicationRecord
        self.admin
      end
 
+     def self.user_with_most_lectures
+       lecture_count = 0;
 
+       User.all.each {|user| if user.topics.count > lecture_count
+                               lecture_count = user.topics.count
+                                user_with_most_lectures = user.id
+                                end
+                      }
+                    return user_with_most_lectures
+
+
+      end
+
+      def self.user_with_least_lectures
+
+              lecture_count = 0;
+
+        User.all.each {|user| if user.topics.count < lecture_count
+                        lecture_count = user.topics.count
+                         user_with_least_lectures = user.id
+                         end
+                       }
+                    
+       end
 
   def checkallfields?
     if self.id != nil

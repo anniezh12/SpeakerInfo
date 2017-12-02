@@ -1,0 +1,3 @@
+<h2>Welcome,</h2>
+Speaker with least lectures is <strong> <%=link_to  @user.name.capitalize(),user_path(@user)%></strong>,with <%= @user.topics.count%>
+<%= link_to "Topics",user_topics_path(@user)%>

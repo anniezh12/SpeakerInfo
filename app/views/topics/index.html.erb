@@ -2,20 +2,23 @@
  <% if @user.checkallfields? %>
     <%if @topics.length >= 1%>
 
-      <p><h1>All Topics by <%= current_user.name%></h1>
+      <p><h1>All Topics by <%= @user.name%></h1>
        <ul>
+         <% c=0 %>
           <% @topics.each do |topic|%>
             <br>
           <li>
-              <%= topic.title%>
+<%= topic.id %>-<strong><%= topic.title%></strong>
               <p>
               <%= topic.description%>
               <br>Delivered on :<%= topic.date_of_event.strftime("%B %d, %Y") if topic.date_of_event%>
-              <p>
+                              <!-- if user is same as current user it will provide Delete and Edit option -->
+                <% if @user == current_user%>
                <div style="float:left"><%= button_to "Delete",topic_path(topic),method: :delete%>
                </div>
                <div style="float:left"><%= button_to "Edit ", edit_topic_path(topic),method: :get%>
                </div>
+               <% end %>
                <br>
           </li>
                 <% end %>

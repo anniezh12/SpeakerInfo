@@ -41,13 +41,14 @@ class TopicsController < ApplicationController
       end
 
       def show
-        #following if isto accomodate nested routes
+        #following if is to accomodate nested routes
         if params[:user_id]
-          @user = User.find(user_id);
+          @user = User.find(params[:user_id]);
           @topics = @user.topics
+          @topic = Topic.find(params[:id]) if params[:id]
         else
-        @topic = Topic.find(params[:id])
-      end
+          @topic = Topic.find(params[:id])
+        end
       end
 
       def destroy
