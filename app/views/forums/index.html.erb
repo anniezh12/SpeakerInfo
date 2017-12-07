@@ -1,1 +1,15 @@
 <h1>welcome to the Forums Page</h1>
+  <% if @forums%>
+<ul>
+
+<% @forums.each do |forum|%>
+<li>Name: <%= forum.name%>
+  <br>Location: <%= forum.location%>
+  <br>Number of Speakers:<%= forum.number_of_speakers%>
+  <br>Audience:<%= forum.audience%>
+</li>
+<% end %>
+</ul>
+<% else %>
+No Forums Provided at this time
+<% end %>
