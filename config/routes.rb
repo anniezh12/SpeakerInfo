@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :forumtopics
   resources :forums
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

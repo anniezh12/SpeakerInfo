@@ -21,7 +21,12 @@ class TopicsController < ApplicationController
        if params[:topic][:title]!= ""  && params[:topic][:description]!= ""  && params[:topic][:date_of_event]!= ""
            topic = current_user.topics.create(topic_params)
            current_user.save
+           #populating Join Model "Speakerarchive", which joins a user/speaker with its topics
            Speakerarchive.create(user_id: current_user.id,topic_id: topic.id).save
+
+           #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
+           forum = Forum.find_or_create_by(params[:topic][:forum])
+           @topic_forum = topic.forums.build(forum_id: forum.id,ratings:params[:topic][:rating]);
            redirect_to topics_path
        else
            flash[:message] = "All fields must be filled"
@@ -63,7 +68,7 @@ class TopicsController < ApplicationController
   private
 
        def topic_params
-         params.require(:topic).permit(:title,:description,:date_of_event)
+         params.require(:topic).permit(:title,:description,:date_of_event,:forum)
            #      binding.pry
        end
 
