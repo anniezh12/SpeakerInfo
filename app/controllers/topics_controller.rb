@@ -31,7 +31,7 @@ class TopicsController < ApplicationController
            #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
 
            forum = topic.forums.build(name: params[:topic][:forum],location: "San Jose");
-           Forumtopic.create(forum_id: forum.id,topic_id: topic.id,ratings: params[:topic][:ratings])
+           Forumtopic.create(forum_id: forum.id,topic_id: topic.id,ratings: params[:topic][:ratings]).save
            redirect_to topics_path
        else
            flash[:message] = "All fields must be filled"
