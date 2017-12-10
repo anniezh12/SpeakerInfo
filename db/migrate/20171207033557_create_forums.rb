@@ -5,6 +5,7 @@ class CreateForums < ActiveRecord::Migration[5.1]
       t.string :location
       t.integer :number_of_speakers
       t.integer :audience
+      t.integer :topic_id
       t.timestamps
     end
   end

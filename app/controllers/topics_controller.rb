@@ -19,15 +19,19 @@ class TopicsController < ApplicationController
       def create
         #binding.pry
        if params[:topic][:title]!= ""  && params[:topic][:description]!= ""  && params[:topic][:date_of_event]!= ""
+          # @topic = Topic.find(params[])
            topic = current_user.topics.build(topic_params)
-           current_user.save
+           if topic.save
+               current_user.save
+               id = topic.id
+             end
            #populating Join Model "Speakerarchive", which joins a user/speaker with its topics
-           sp =Speakerarchive.create(user_id: current_user.id,topic_id: topic.id).save
+           Speakerarchive.create(user_id: current_user.id,topic_id: topic.id).save
 
            #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
-           #forum = Forum.find_or_create_by(params[:topic][:forum])
-           topic_forum = topic.forums.build(name: params[:topic][:name],location: "San Jose");
-           forumtopic.create(forum_id: topic_forum.id,topic_id: topic.id,ratings: params[:topic][:ratings])
+
+           forum = topic.forums.build(name: params[:topic][:forum],location: "San Jose");
+           Forumtopic.create(forum_id: forum.id,topic_id: topic.id,ratings: params[:topic][:ratings])
            redirect_to topics_path
        else
            flash[:message] = "All fields must be filled"

@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20171207051604) do
     t.string "location"
     t.integer "number_of_speakers"
     t.integer "audience"
+    t.integer "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

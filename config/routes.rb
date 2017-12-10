@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
 
   resources :forumtopics
   resources :forums
@@ -22,7 +22,13 @@ get '/users/least_lectures', to: 'users#user_with_least_lectures'
     resources :topics, only: [:new,:show, :index]
   end
 
+
  resources :topics
+ #
+ # resources :topics, only:[:create,:show,:index] do
+ #    #nested resources for forums
+ #    resources :forums, only:[:new,:show,:index]
+ # end
 
 
   root 'welcome#index'
