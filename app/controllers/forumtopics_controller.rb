@@ -1,2 +1,3 @@
 class ForumtopicsController < ApplicationController
+  
 end
