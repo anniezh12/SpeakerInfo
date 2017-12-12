@@ -8,13 +8,13 @@
           <% @topics.each do |topic|%>
             <br>
             <% forum = Forum.find_by(topic_id: topic.id)%>
-            <% #forum_ratings = Forumtopic.find_by(topic_id: topic.id).ratings%>
-          <li>
-<%= topic.id %>-<strong><%= topic.title%></strong>
+            <li>
+            <%= topic.id %>-<strong><%= topic.title%></strong>
               <p>
               <%= topic.description%>
               <br>Delivered on :<%= topic.date_of_event.strftime("%B %d, %Y") if topic.date_of_event%>
-              <br>Forum: <b><%= topic.forum.capitalize%></b>  (<%= topic.forum_rating%> star rating)
+              <br>Forum: <b><%= topic.forum.capitalize%></b>
+                (<%= Forumtopic.find_by(topic_id: topic.id).ratings%> star rating)
 
                               <!-- if user is same as current user it will provide Delete and Edit option -->
                 <% if @user == current_user%>

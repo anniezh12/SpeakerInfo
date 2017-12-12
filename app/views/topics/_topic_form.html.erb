@@ -1,13 +1,14 @@
 
 <table class ="noBorder">
-    <%= form_for @topic do |f|%>
+    <%#= form_for @topic do |f|%>
+    <%= form_tag topics_path, method: 'post' do %>
 
-          <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= f.text_field :title%></td></tr>
-          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= f.text_field :description%></td></tr>
-          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%= f.text_field :date_of_event, data:{provide: 'datepicker'}%></td></tr>
-          <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= f.text_field :forum%></td></tr>
-          <tr><td class ="noBorder">Forum Rating: </td><td class ="noBorder"><%= f.text_field :forum_rating%></td></tr>
-          <tr><td class ="noBorder"></td><td class ="noBorder"><%= f.submit %></td></tr>
+          <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title%></td></tr>
+          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_field_tag :description%></td></tr>
+          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%= text_field_tag :date_of_event%></td></tr>
+          <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum%></td></tr>
+          <tr><td class ="noBorder">How do you rate this Forum(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating%></td></tr>
+          <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag "Create" %></td></tr>
 
     <%end%>
 </table>
