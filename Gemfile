@@ -54,12 +54,11 @@ end
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Adding Admin Model
+gem 'activeadmin', github: 'activeadmin'
 
-  gem 'rails_admin'
   gem 'devise'
   gem 'omniauth'
   gem 'omniauth-google-oauth2'
 
-group :assets do
+
   gem 'jquery-ui-rails'
-end

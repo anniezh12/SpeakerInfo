@@ -13,4 +13,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//= require jquery-ui-datepicker
+//= require jquery-ui/widgets/datepicker

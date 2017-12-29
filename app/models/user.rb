@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
 
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -19,9 +19,9 @@ class User < ApplicationRecord
 
     end
 
-     def is_admin?
-       self.admin
-     end
+    #  def is_admin?
+    #    self.admin
+    #  end
 
      def self.user_with_most_lectures
        lecture_count = 0;

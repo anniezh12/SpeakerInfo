@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :forumtopics
   resources :forums
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+#  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :categories
 
   #get '/topics/:id/destroy',to: 'topics#destroy'
