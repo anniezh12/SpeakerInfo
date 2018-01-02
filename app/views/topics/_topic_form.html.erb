@@ -5,7 +5,7 @@
 
           <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title%></td></tr>
           <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_field_tag :description%></td></tr>
-          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%= text_field_tag :date_of_event%></td></tr>
+          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event%></td><input id = "datepicker"/></tr>
           <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum%></td></tr>
           <tr><td class ="noBorder">How do you rate this Forum(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating%></td></tr>
           <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag "Create" %></td></tr>

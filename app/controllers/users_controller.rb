@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
   end
 
   def create
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
     def user_with_most_lectures
       if User.all.count > 0
           @user = User.find(User.user_with_most_lectures)
-      else      
+      else
         redirect_to '/'
       end
     end
