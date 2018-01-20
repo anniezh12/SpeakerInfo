@@ -43,18 +43,21 @@ class TopicsController < ApplicationController
      end
 
       def edit
+
         @topic = Topic.find(params[:id])
       end
 
       def update
+           binding.pry
         @topic = Topic.find(params[:id])
         @topic.update(topic_params)
         @topic.save
+         binding.pry
         redirect_to topic_path(@topic)
       end
 
       def show
-        #following if is to accomodate nested routes
+    #following if is to accomodate nested routes
         if params[:user_id]
           @user = User.find(params[:user_id]);
           @topics = @user.topics
@@ -76,7 +79,7 @@ class TopicsController < ApplicationController
   private
 
        def topic_params
-         #binding.pry
+         binding.pry
          params.permit(:title,:description,:date_of_event,:forum)
        end
 

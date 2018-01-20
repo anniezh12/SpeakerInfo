@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
 
     devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
     devise :omniauthable, omniauth_providers: [:google_oauth2]
    has_many :topics
    # has_many forums, through: :topics

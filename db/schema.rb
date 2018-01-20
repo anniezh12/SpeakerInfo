@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20171229191810) do
   create_table "topics", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "date_of_event"
+    t.text "date_of_event"
     t.string "forum", default: "CSIX"
     t.integer "user_id"
     t.datetime "created_at", null: false

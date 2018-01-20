@@ -3,7 +3,7 @@ class CreateTopics < ActiveRecord::Migration[5.1]
     create_table :topics do |t|
      t.string :title
      t.text   :description
-     t.datetime :date_of_event
+     t.text :date_of_event
      t.string :forum, default: "CSIX"
      t.integer :user_id
      t.timestamps

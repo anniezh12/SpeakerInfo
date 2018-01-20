@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(email: params[:email])
-    @user.save
+    # @user = User.create(email: params[:email])
+    # @user.save
   end
 
   def edit

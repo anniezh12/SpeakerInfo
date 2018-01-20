@@ -1,4 +1,4 @@
 
   $(document).ready(function() {
-    $("#datepicker").datepicker();
+    $("#date_of_event").datepicker();
   });
