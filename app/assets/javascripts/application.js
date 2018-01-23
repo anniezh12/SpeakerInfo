@@ -15,3 +15,4 @@
 //= require_tree .
 //= require jquery-ui/widgets/datepicker
 //= require datepicker
+//= require adminpage
