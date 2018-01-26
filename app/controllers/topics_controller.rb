@@ -32,9 +32,9 @@ class TopicsController < ApplicationController
 
            forum = topic.forums.build(name: params[:forum],location: "Saratoga");
            forum.save
-            #binding.pry
+
            Forumtopic.create(forum_id: forum.id,topic_id: topic.id,ratings: params[:forum_rating]).save
-          #  binding.pry
+
            redirect_to topics_path
        else
            flash[:message] = "All fields must be filled"
@@ -48,11 +48,9 @@ class TopicsController < ApplicationController
       end
 
       def update
-           binding.pry
         @topic = Topic.find(params[:id])
         @topic.update(topic_params)
         @topic.save
-         binding.pry
         redirect_to topic_path(@topic)
       end
 
@@ -71,7 +69,6 @@ class TopicsController < ApplicationController
         topic = Topic.find(params[:id])
         spRecord = Speakerarchive.find_by(topic_id: topic.id)
         topic.delete
-        #Topic.save
         spRecord.delete
         redirect_to topics_path
       end
@@ -79,7 +76,6 @@ class TopicsController < ApplicationController
   private
 
        def topic_params
-         binding.pry
          params.permit(:title,:description,:date_of_event,:forum)
        end
 

@@ -43,3 +43,15 @@
          <%= button_to "Home",users_path,method: :get%>
 
   <% end %>
+
+  <br>You can add notes on this page for your future reference
+    <form method=post action="#" id="noteForm">
+       <div class="form-group" >
+    <input type=textarea class="form-control" id="notes" >
+    <br>
+    <input type=submit class="btn btn-primary" value="Submit">
+  </div>
+    </form>
+  </div>
+
+    <div id="messageDiv" ></div>

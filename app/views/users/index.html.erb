@@ -1,12 +1,5 @@
-<H1>Speakers</h1>
-  <form method=post action="#" id="noteForm">
-     <div class="form-group">
-  <input type=textarea class="form-control" id="notes" >
-  <input type=submit value="Submit">
-</div>
-  </form>
-  <div id="messageDiv"></div>
 
+<H1>Speakers</h1>
   <% User.all.each do |user| %>
   <table>
    <tr><td><%= user.name %></td>
