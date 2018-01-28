@@ -10,6 +10,8 @@ class TopicsController < ApplicationController
            @user = current_user
            @topics = current_user.topics
          end
+         @topic = Topic.new
+
       end
 
       def new

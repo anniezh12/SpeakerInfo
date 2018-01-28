@@ -17,6 +17,9 @@
 
     <!-- Custom styles for this template -->
     <link href="./index_files/carousel.css" rel="stylesheet">
+<%= stylesheet_link_tag 'application' %>
+<%= javascript_include_tag 'application' %>
+
   </head>
   <body>
 
@@ -25,10 +28,11 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="http://getbootstrap.com/docs/4.0/examples/carousel/#">Csix</a>
+        <a class="navbar-brand" href="/">Csix</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <% if !user_signed_in? %>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -38,9 +42,9 @@
               <a class="nav-link" href="/users/sign_in">Sign In </a>
             </li>
             <li class="nav-item active">
-              <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %></span></a>
+                <a href="/users/auth/google_oauth2"><img width=35 heigth =35 src="/assets/googlelogo.png"></a></span></a>
             </li>
-            <% if user_signed_in? %>
+            <% else %>
 
             <li class="nav-item active">
               <a class="nav-link" href="/users/<%=current_user.id if current_user%>">Profile </a>
@@ -52,32 +56,33 @@
               <a class="nav-link" href="/users/<%=current_user.id if current_user%>/topics/new">Add New Topic </a>
             </li>
 
-          	    <!-- #  <,{:style => 'color: #ffffff', :class=> "css_class"}  %>/
-          			#  <%= link_to "My Lectures", topics_path,{:style => 'color: #ffffff', :class=> "css_class"}  %>/
-          			#  <%= link_to "Add New Topic", new_user_topic_path(current_user),{:style => 'color: #ffffff', :class=> "css_class"} %>/
-          			#  <%= link_to "Speaker Archive",speakerarchives_path,{:style => 'color: #ffffff', :class=> "css_class"} %>
-          			#  <%= button_to "Sign Out", destroy_user_session_path,method: :delete %> -->
           	 <% end %>
 
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+
         </div>
       </nav>
     </header>
-    <%= javascript_include_tag 'application' %>
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <div class="model">
+      <%=yield%>
+    </div>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <% if user_signed_in? %>
+            <%= button_to "Sign Out", destroy_user_session_path,method: :delete %>
+      <% end %>
+  <div class="panel-footer"><center>&copyAniqa Elahi,All Rights Reserved</center> </div>
 
-<%=yield%>
-<% if user_signed_in? %>
-      <%= button_to "Sign Out", destroy_user_session_path,method: :delete %>
-<% end %>
     <!-- Bootstrap core JavaScript
-    ================================================== -->
+    ================
+    ================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./index_files/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>

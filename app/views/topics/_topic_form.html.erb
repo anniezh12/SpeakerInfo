@@ -4,7 +4,7 @@
     <%= form_tag topics_path, method: 'post' do %>
 
           <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title,@topic.title %></td></tr>
-          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description, @topic.description,cols: 50%></td></tr>
+          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description, @topic.description,cols: 30%></td></tr>
           <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event ,nil,placeholder: "MM/DD/YY"%></td></tr>
           <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum,@topic.forum%></td></tr>
           <tr><td class ="noBorder">How do you rate this Forum(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>

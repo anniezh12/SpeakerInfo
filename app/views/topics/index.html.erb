@@ -1,5 +1,5 @@
-<%#binding.pry%>
 
+<div class="jumbotron">
  <% if @user.checkallfields? %>
     <%if @topics.length >= 1%>
 
@@ -44,6 +44,7 @@
 
   <% end %>
 
+<div id="newTopic"></div>
   <br>You can add notes on this page for your future reference
     <form method=post action="#" id="noteForm">
        <div class="form-group" >
@@ -54,4 +55,22 @@
     </form>
   </div>
 
+  <h3>You Can add a new topic for the upcoming Date</h3>
+  <table class ="noBorder">
+      <%#= form_for @topic do |f|%>
+      <%= form_tag topics_path, :id => "topicForm" do %>
+
+            <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title,@topic.title %></td></tr>
+            <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description, @topic.description,cols: 30%></td></tr>
+            <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event ,nil,placeholder: "MM/DD/YY"%></td></tr>
+            <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum,@topic.forum%></td></tr>
+            <tr><td class ="noBorder">How do you rate this Forum(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>
+            <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag "Add Topic"  %></td></tr>
+
+      <%end%>
+  </table>
+
+
     <div id="messageDiv" ></div>
+
+</div>

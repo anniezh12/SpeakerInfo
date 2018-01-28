@@ -1,12 +1,13 @@
-
+<div class="jumbotron">
 <table class ="noBorder">
     <%#= form_for @topic do |f|%>
     <%= form_tag topic_path(@topic), method: "put" do %>
           <tr><td class ="noBorder">Title: </td><td class ="noBorder"  ><%= text_field_tag :title,@topic.title%></td></tr>
-          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description, @topic.description,cols:"250"%></td></tr>
-          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event,@topic.date_of_event,nil,placeholder: "MM/DD/YY"%></td></tr>
+          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event,@topic.date_of_event,placeholder: "MM/DD/YY"%></td></tr>
           <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum,@topic.forum%></td></tr>
-          <tr><td class ="noBorder">How do you rate this Forum(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>
+          <tr><td class ="noBorder">Forum Ratings(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>
+          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description, @topic.description,cols:"25" ,rows: "6"%></td></tr>
           <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag "Save Changes"  %></td></tr></div>
     <%end%>
 </table>
+</div>
