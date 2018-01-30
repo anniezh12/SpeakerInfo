@@ -18,3 +18,4 @@
 //= require adminpage
 //= require datepicker
 //= require popup
+//= ajaxtopic

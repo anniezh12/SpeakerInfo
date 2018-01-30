@@ -15,7 +15,7 @@
               <%= topic.description%>
               <br>Delivered on :<%= topic.date_of_event if topic.date_of_event%>
               <br>Forum: <b><%= topic.forum.capitalize%></b>
-                (<%= Forumtopic.find_by(topic_id: topic.id).ratings%> star rating)
+                (<%#= Forumtopic.find_by(topic_id: topic.id).ratings%> star rating)
 
                               <!-- if user is same as current user it will provide Delete and Edit option -->
                 <% if @user == current_user%>
@@ -43,29 +43,22 @@
          <%= button_to "Home",users_path,method: :get%>
 
   <% end %>
+</div>
+  <div id="topicsdiv">
+  </div>
 
-<div id="newTopic"></div>
-  <br>You can add notes on this page for your future reference
-    <form method=post action="#" id="noteForm">
-       <div class="form-group" >
-    <input type=textarea class="form-control" id="notes" >
-    <br>
-    <input type=submit class="btn btn-primary" value="Submit">
-  </div>
-    </form>
-  </div>
 
   <h3>You Can add a new topic for the upcoming Date</h3>
   <table class ="noBorder">
-      <%#= form_for @topic do |f|%>
-      <%= form_tag topics_path, :id => "topicForm" do %>
 
-            <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title,@topic.title %></td></tr>
-            <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description, @topic.description,cols: 30%></td></tr>
+      <%= form_tag topics_path do %>
+
+            <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title%></td></tr>
+            <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description,"",cols: 30%></td></tr>
             <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event ,nil,placeholder: "MM/DD/YY"%></td></tr>
-            <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum,@topic.forum%></td></tr>
+            <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum%></td></tr>
             <tr><td class ="noBorder">How do you rate this Forum(1-5): </td><td class ="noBorder"><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>
-            <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag "Add Topic"  %></td></tr>
+            <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag %></td></tr>
 
       <%end%>
   </table>

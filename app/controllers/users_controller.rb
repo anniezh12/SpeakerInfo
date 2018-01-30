@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       @user = User.find(User.user_with_least_lectures)
     end
 
-
+      
 
 private
 

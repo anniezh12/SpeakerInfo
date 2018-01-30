@@ -3,27 +3,7 @@ $(document).ready(function(){
 });
 
 function attachListeners(){
-  // following function will operate when user submits new topic properties
-  $("#topicForm").on("submit", function(e){
-  e.preventDefault();
-// display inserted data using ajax
-// data = {
-     'authenticity_token': $("input[name='authenticity_token']".val()),
-//     'title': $("input[name='title']".val()),
-//
-// }
-$.ajax({
-   type: "POST",
-   data: $(this).serialize();
-   success: function(response){
-     $("#newdiv").val("");
-     $("$newTopic").append(response)
-   }
 
-})
-
-
-  });
 
 // following code will operate when user enters notes
   $("#noteForm").submit(function(e){

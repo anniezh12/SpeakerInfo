@@ -1,4 +1,6 @@
+
 <div class="jumbotron">
+  <div class="container">
     <table class ="noBorder">
 
       <% if @user &&  @user.checkallfields? %>
@@ -25,7 +27,7 @@
 
            <% if user_signed_in? && @user.id == current_user.id %>
               <%= link_to "New Topic",new_user_topic_path(@user)%>  <!-- this link is using nested routes-->
-           <td class ="noBorder"><%=button_to "All Lectures", users_path,method: :get%></td>
+
 
           <% end %>
 
@@ -39,3 +41,4 @@
       <% end%>
       </table>
     </div>
+</div>

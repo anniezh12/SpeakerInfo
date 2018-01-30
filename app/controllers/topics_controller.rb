@@ -10,44 +10,45 @@ class TopicsController < ApplicationController
            @user = current_user
            @topics = current_user.topics
          end
-         @topic = Topic.new
+    @topic = Topic.new
 
       end
 
       def new
         @topic = Topic.new
+        @topics = current_user.topics
       end
 
       def create
-        #binding.pry
-       if params[:title]!= ""  && params[:description]!= ""  && params[:date_of_event]!= "" && params[:forum] != ""
-          # @topic = Topic.find(params[])
-           topic = current_user.topics.build(topic_params)
-           topic.save
 
-               current_user.save
+            if params[:title]!= ""  && params[:description]!= ""  && params[:date_of_event]!= "" && params[:forum] != ""
+               # @topic = Topic.find(params[])
+              @topic = current_user.topics.build(topic_params)
+              @topic.save
+              current_user.save
 
-           #populating Join Model "Speakerarchive", which joins a user/speaker with its topics
-           Speakerarchive.create(user_id: current_user.id,topic_id: topic.id).save
+                #populating Join Model "Speakerarchive", which joins a user/speaker with its topics
+                Speakerarchive.create(user_id: current_user.id,topic_id: @topic.id).save
 
-           #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
+                #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
 
-           forum = topic.forums.build(name: params[:forum],location: "Saratoga");
-           forum.save
+                @forum = @topic.forums.build(name: params[:forum],location: "Saratoga");
+                @forum.save
 
-           Forumtopic.create(forum_id: forum.id,topic_id: topic.id,ratings: params[:forum_rating]).save
+                Forumtopic.create(forum_id: @forum.id,topic_id: @topic.id,ratings: params[:forum_rating]).save
 
-           redirect_to topics_path
-       else
-           flash[:message] = "All fields must be filled"
-           redirect_to new_topic_path(topic)
-       end
+                redirect_to topics_path
+            else
+                flash[:message] = "All fields must be filled"
+                redirect_to new_topic_path(@topic)
+            end
+          end
+
+     def edit
+
+       @topic = Topic.find(params[:id])
+
      end
-
-      def edit
-
-        @topic = Topic.find(params[:id])
-      end
 
       def update
         @topic = Topic.find(params[:id])
@@ -68,10 +69,11 @@ class TopicsController < ApplicationController
       end
 
       def destroy
-        topic = Topic.find(params[:id])
-        spRecord = Speakerarchive.find_by(topic_id: topic.id)
-        topic.delete
-        spRecord.delete
+       #binding.pry
+        @topic = Topic.find(params[:id])
+        @spRecord = Speakerarchive.find_by(topic_id: @topic.id)
+        @topic.delete
+        @spRecord.delete
         redirect_to topics_path
       end
 
