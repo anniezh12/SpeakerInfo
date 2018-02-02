@@ -27,17 +27,12 @@
     <!-- Custom styles for this template -->
     <link href="./index_files/carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
   </head>
   <body>
-
-
-
-
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="/">Csix</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" >
           <span class="navbar-toggler-icon"></span>
         </button>
         <% if !user_signed_in? %>
@@ -53,13 +48,13 @@
                 <a class="nav-link" href="/users/auth/google_oauth2">Sign In With Google</aa></span></a>
             </li>
           </ul>
-        </div>
+
             <% else %>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <% id = current_user.id%>
-              <a class="nav-link" href="/users/#{id}">Profile </a>
+              <a class="nav-link" href="/users/<%=id%>">Profile </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="/topics">Lectures </a>
@@ -68,15 +63,11 @@
               <a class="nav-link" href="/users/<%=current_user.id if current_user%>/topics/new">Add New Topic </a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="/users/sign_out" data-method="delete" >Sign Out </a>
+              <a class="nav-link" href="/users/sign_out" data-method="delete" >Sign Out </a>
             </li>
           </ul>
-        </div>
-
-          	 <% end %>
-
-          </ul>
-
+        	 <% end %>
+         </div>
         </div>
       </nav>
     </header>

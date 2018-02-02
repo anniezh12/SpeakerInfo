@@ -9,13 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 //= require rails-ujs
 //= require turbolinks
 //= require_tree
 //= require jquery-ui/widgets/datepicker
-
+//= ajaxtopic
 //= require adminpage
 //= require datepicker
 //= require popup
-//= ajaxtopic

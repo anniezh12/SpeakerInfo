@@ -1,8 +1,9 @@
 class TopicsController < ApplicationController
-     before_action :currentuser
-      def index
 
-        #following if structre works when nested routes are supplied -->
+     before_action :currentuser
+
+      def index
+        #following if structre works when nested routes are supplied
          if params[:user_id]
            @user = User.find(params[:user_id])
            @topics = User.find(params[:user_id]).topics
@@ -10,7 +11,7 @@ class TopicsController < ApplicationController
            @user = current_user
            @topics = current_user.topics
          end
-    @topic = Topic.new
+        @topic = Topic.new
 
       end
 
@@ -26,6 +27,10 @@ class TopicsController < ApplicationController
               @topic = current_user.topics.build(topic_params)
               @topic.save
               current_user.save
+              if @topic.save
+                render json: @topic, status: 201
+             end
+
 
                 #populating Join Model "Speakerarchive", which joins a user/speaker with its topics
                 Speakerarchive.create(user_id: current_user.id,topic_id: @topic.id).save
@@ -36,8 +41,10 @@ class TopicsController < ApplicationController
                 @forum.save
 
                 Forumtopic.create(forum_id: @forum.id,topic_id: @topic.id,ratings: params[:forum_rating]).save
-
-                redirect_to topics_path
+                # if @topic.save
+                #   render json: @topic, status: 201
+                # end
+              #  redirect_to topics_path
             else
                 flash[:message] = "All fields must be filled"
                 redirect_to new_topic_path(@topic)
@@ -66,10 +73,14 @@ class TopicsController < ApplicationController
         else
           @topic = Topic.find(params[:id])
         end
+
+        # respond_to do |format|
+        #   format.html{ render :show}
+        #   format.json{ render json: @topic}
+        # end
       end
 
       def destroy
-       #binding.pry
         @topic = Topic.find(params[:id])
         @spRecord = Speakerarchive.find_by(topic_id: @topic.id)
         @topic.delete
