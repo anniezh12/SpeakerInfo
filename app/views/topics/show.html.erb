@@ -1,3 +1,4 @@
+
 <div class="jumbotron">
   <div class="container">
 <% if @topic %>
@@ -15,9 +16,12 @@
               <% else %>
                  <%= button_to "Home", root_path,method: :get%>
               <% end %>
+<button id="previous">Previous</button>
+<div id="next">Next</div>
 
 <% else %>
 
-        Sorry, topic id doesnt match out Record
+        Sorry, topic id doesn't match our Record
 <% end %>
-</div></div>
+</div>
+</div>
