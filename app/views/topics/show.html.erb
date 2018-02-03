@@ -2,8 +2,9 @@
 <div class="jumbotron">
   <div class="container">
 <% if @topic %>
-        <h3>Topic : <%= @topic.title  %></h3>
 
+        <h3>Topic : <%= @topic.title  %></h3>
+          <div id="topic_data">
              <%= @topic.description%>
                   <br>
                   <b>  <li>Date: </b> <%= @topic.date_of_event%><br>
@@ -16,8 +17,13 @@
               <% else %>
                  <%= button_to "Home", root_path,method: :get%>
               <% end %>
+          </div>
+              <form>
+                <input type=hidden  id ="hidden_id" value="<%=@topic.id%>">
+              </form>
 <button id="previous">Previous</button>
 <div id="next">Next</div>
+
 
 <% else %>
 

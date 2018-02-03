@@ -6,21 +6,13 @@ $("#previous").on("click",function(e){
   // eg some one deleted a record so the next or previous by adding 1 in its id wont work
   // First I have to grab all the topics into an array finding current topic id and finding its index number
   //var allTopicsArray = Topic.all
+ e.preventDefault();
 
-$.get("/topics/ajaxtopic", function(res){
-  var n =res.serialize()
-  alert(n);
+// $.ajax({
+//   type: "GET",
+//   url: "/topics/next",
+//   dataType: "JSON",
+//    data: formdata,
+//
 });
-});
-
-  // alert("Hello")
-  // e.preventDefault();
-  //   $.ajax({
-  //   type: "Get",
-  //   url: '',
-  //   data: formdata,
-  //   dataType: "JSON"}).done(function(newTopic){
-  //   $("#topicsdiv").append("<ul><li>"+ newTopic.title+"</li><li>"+newTopic.description+"</li><li>"+newTopic.date_of_event+"</li><li>"+newTopic.forum+"</li></ul>A new Topic has been created successfully!. Please refresh page to see it with all other lectures on the top of the page");
-  //   })
-  // });
 });

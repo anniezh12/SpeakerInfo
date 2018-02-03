@@ -13,8 +13,9 @@
 //= require turbolinks
 //= require_tree
 //= require jquery-ui/widgets/datepicker
+
 //= ajaxtopic
-//= ajaxprevious
+
 //= require adminpage
 //= require datepicker
 //= require popup

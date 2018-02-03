@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :categories
 
   #get '/topics/:id/destroy',to: 'topics#destroy'
+
   resources :speakerarchives
 
 get '/users/most_lectures', to: 'users#user_with_most_lectures'
@@ -29,7 +30,8 @@ get '/users/least_lectures', to: 'users#user_with_least_lectures'
 
 
  resources :topics
- #
+ get '/topics/next', to: 'topics#next'
+
  # resources :topics, only:[:create,:show,:index] do
  #    #nested resources for forums
  #    resources :forums, only:[:new,:show,:index]
