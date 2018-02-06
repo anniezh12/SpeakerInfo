@@ -2,7 +2,7 @@
 <div class="jumbotron">
   <div class="container">
 <% if @topic %>
-
+<div id="topic_display">
         <h3>Topic : <%= @topic.title  %></h3>
           <div id="topic_data">
              <%= @topic.description%>
@@ -21,9 +21,10 @@
               <form>
                 <input type=hidden  id ="hidden_id" value="<%=@topic.id%>">
               </form>
+            </div>
 <button id="previous">Previous</button>
-<div id="next">Next</div>
 
+<button id="next">Next</button>
 
 <% else %>
 

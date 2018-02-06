@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 // following function will operate when user submits new topic properties
 $("#topicForm").on("submit",function(e){
   var formdata = $(this).serialize();
@@ -14,27 +14,3 @@ $("#topicForm").on("submit",function(e){
     })
   });
 });
-$(document).ready(function(){
-// following function will operate when user submits new topic properties
-$("#previous").on("click",function(e){
-  alert($("#hidden_id").val());//got the id of current record
-  var currentId = $("#hidden_id").val();
-  //I need to find which index number is this current record bacause Id alone will not work for it
-  // eg some one deleted a record so the next or previous by adding 1 in its id wont work
-  // First I have to grab all the topics into an array finding current topic id and finding its index number
-  //var allTopicsArray = Topic.all
- e.preventDefault();
-
-$.post("/topics/next",{id: currentId}).done(function(resp){
-   $("#topic_data").append(resp);
-  })
-// $.ajax({
-//     url: "/topics/next",
-//   dataType: "JSON",
-//    data: {id: currentId},
-// }).done(function(nextTopic){
-//   // $("#topic_data").append("nextTopic");
-//   alert(nextTopic);
-// })
-})
-})

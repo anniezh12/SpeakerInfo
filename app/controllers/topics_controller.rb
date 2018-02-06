@@ -71,29 +71,33 @@ class TopicsController < ApplicationController
 
       end
 
-      def currenttopic
 
-      end
       def next
-        id= params[:id]+1
-       render json: id, status: 201
-        # if params[:user_id]
-        #   @user = User.find(params[:user_id]);
-        #   @topics = @user.topics
-        #   @topic = Topic.find(params[:id]) if params[:id]
-        # else
-        #   @topic = Topic.find(params[:id])
-        # end
-        # nextid= @topic.id+1
-        #     unless Topic.find(nextid) == true
-        #       nextid = nextid+1
-        #     end
-        # @next = Topic.find(nextid)
-        #
-        #  if @next
-        #    render json: @next, status: 201
-        #  end
+        nextid= params[:id].to_i+1
+         @topic = Topic.find(nextid);
 
+              while !@topic
+                nextid = nextid+1
+                @topic = Topic.find(nextid);
+              end
+
+        if @topic
+          render json: @topic,status: 201
+        end
+      end
+
+      def previous
+        nextid= params[:id].to_i-1
+         @topic = Topic.find(nextid);
+
+              while !@topic
+                nextid = nextid - 1
+                @topic = Topic.find(nextid);
+              end
+
+        if @topic
+          render json: @topic,status: 201
+        end
       end
 
       def destroy
