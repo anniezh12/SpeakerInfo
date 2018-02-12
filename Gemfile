@@ -54,12 +54,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+  gem 'jquery-ui-rails', '5.0.0'
 # Adding Admin Model
 gem 'activeadmin', github: 'activeadmin'
 
   gem 'devise'
   gem 'omniauth'
   gem 'omniauth-google-oauth2'
-
-
-  gem 'jquery-ui-rails'

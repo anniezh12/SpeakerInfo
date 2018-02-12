@@ -12,7 +12,7 @@
                   <b> Speaker  :</b><%= link_to speaker.name,user_path(speaker)%>
 
               <% if @topic.user == current_user %>
-                 <%= button_to "Edit",edit_topic_path,method: :get%>
+                 <%= button_to "Edit",edit_topic_path(@topic),method: :get%>
                  <%= button_to "Delete",topic_path(@topic),method: :delete%>
               <% else %>
                  <%= button_to "Home", root_path,method: :get%>

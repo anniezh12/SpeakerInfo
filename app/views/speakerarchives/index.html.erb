@@ -6,7 +6,7 @@
         <th>Category</th>
     </tr>
     <% Speakerarchive.all.each do |speaker|%>
-      <% user = User.find(speaker.user_id)  %>
+      <% user = User.find(speaker.user_id) if speaker.user_id != nil  %>
       <% topic =  Topic.find(speaker.topic_id) if speaker.topic_id %>
     <tr>
       <% if user != nil && topic != nil%>

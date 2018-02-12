@@ -12,10 +12,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree
+//= require jquery-ui
 //= require jquery-ui/widgets/datepicker
-
+//= require popup.js
+//= require popup2.js
 //= ajaxtopic
-//= ajaxprevious
+//= ajaxNextPrevious
 //= require adminpage
 //= require datepicker
-//= require popup
