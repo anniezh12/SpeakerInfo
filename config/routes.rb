@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 get '/users/most_lectures', to: 'users#user_with_most_lectures'
 get '/users/least_lectures', to: 'users#user_with_least_lectures'
+get '/speakers', to: 'welcome#displayspeakers'
 # devise_for :users should come before resources :users
 
 

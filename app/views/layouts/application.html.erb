@@ -20,21 +20,25 @@
 
   <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">Csix</a>
+        <div class="link-class"><a  href="/admin/login">CSIX ADMIN</a></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <% if !user_signed_in? %>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/users/sign_up">Sign Up </a>
+            <div class="link-class">  <a class="nav-link" href="/speakers">Speakers </a></div>
+            </li>
+              <% if !user_signed_in? %>
+            <li class="nav-item active">
+            <div class="link-class">  <a class="nav-link" href="/users/sign_up">Sign Up </a></div>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/users/sign_in">Sign In </a>
+              <div class="link-class"><a class="nav-link " href="/users/sign_in">Sign In </a></div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/users/auth/google_oauth2">Sign In With Google</aa></span></a>
+                <div class="link-class"><a class="nav-link" href="/users/auth/google_oauth2">Sign In With Google</a></span></a></div>
             </li>
           </ul>
 
@@ -43,17 +47,20 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <% id = current_user.id%>
-              <a class="nav-link" href="/users/<%=id%>">Profile </a>
+            <div class="link-class">  <a class="nav-link" href="/users/<%=id%>">Profile </a></div>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/topics">Lectures </a>
+              <div class="link-class"><a class="nav-link" href="/topics">Lectures </a></div>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/users/<%=current_user.id if current_user%>/topics/new">Add New Topic </a>
+            <div class="link-class">  <a class="nav-link" href="/users/<%=current_user.id if current_user%>/topics/new">Add New Topic </a></div>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/users/sign_out" data-method="delete" >Sign Out </a>
+            <div class="link-class">  <a class="nav-link" href="/users/sign_out" data-method="delete" >Sign Out </a></div>
             </li>
+
+
+
           </ul>
         	 <% end %>
          </div>
@@ -102,7 +109,7 @@
          <% end %>
 </div>
 </div>
-<div class="panel-footer panel-primary"><center>&copyAniqa Elahi,All Rights Reserved</center> </div>
+<div class="panel-footer panel-primary footer"><center>&copyAniqa Elahi,All Rights Reserved</center> </div>
 
     <!-- Bootstrap core JavaScript
     ================

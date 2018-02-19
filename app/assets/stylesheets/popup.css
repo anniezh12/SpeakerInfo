@@ -46,6 +46,25 @@
 .popLayout {
   word-wrap: break-word;
 }
+.footer{
+  background-color: black;
+
+}
+.welcome-user{
+  float:right;
+  padding: 5 0 0 15;
+  color: #FFA500;
+
+}
+.link-class a{
+  color: ccc;
+  text-decoration: none;
+  }
+
+  .link-class a:hover {
+    color: white;
+    text-decoration: none;
+    }
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {

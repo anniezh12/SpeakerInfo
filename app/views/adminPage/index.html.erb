@@ -1,3 +1,2 @@
-<form >
-<input type=textarea id="addNote">
-</form>
+<% if current_user && current_user.admin == false %>
+<h1>Hello you are here</h1>

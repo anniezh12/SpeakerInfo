@@ -26,22 +26,22 @@ class TopicsController < ApplicationController
               @topic = current_user.topics.build(topic_params)
               @topic.save
               current_user.save
+              #  binding.pry
+              # @forum = @topic.forums.build(name: params[:forum],location: "Saratoga");
+              # @forum.save
+              # @forumtopic = Forumtopic.create(forum_id: @forum.id,topic_id: @topic.id,ratings: params[:forum_rating])
+              # @forumtopic.save
                if @topic.save
                 #populating Join Model "Speakerarchive", which joins a user/speaker with its topics
-                  Speakerarchive.create(user_id: current_user.id,topic_id: @topic.id)
-                  Speakerarchive.save
+                  # Speakerarchive.create(user_id: current_user.id,topic_id: @topic.id)
+                  # Speakerarchive.save
+                  #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
 
             respond_to do |format|
                format.html { render :show } # if no JSON take to show page
-               format.json { render json: @topic }
+               format.json { render json: @topic}
             end
           end
-                #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
-
-                # @forum = @topic.forums.build(name: params[:forum],location: "Saratoga");
-                # @forum.save
-                #
-                # Forumtopic.create(forum_id: @forum.id,topic_id: @topic.id,ratings: params[:forum_rating]).save
 
               # redirect_to topics_path
             else
@@ -107,10 +107,10 @@ class TopicsController < ApplicationController
       def destroy
 
         @topic = Topic.find(params[:id].to_i)
-        @spRecord = Speakerarchive.find_by(topic_id: @topic.id)
+        # @spRecord = Speakerarchive.find_by(topic_id: @topic.id)
 
         @topic.delete
-        @spRecord.delete
+        # @spRecord.delete
         redirect_to topics_path
       end
 
