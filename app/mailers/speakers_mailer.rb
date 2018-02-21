@@ -1,0 +1,2 @@
+class SpeakersMailer < ApplicationMailer
+end

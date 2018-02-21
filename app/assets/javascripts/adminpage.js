@@ -1,36 +1,18 @@
-$(document).ready(function(){
-  attachListeners();
-});
+ $(document).ready(function(){
 
-function attachListeners(){
+     $("#speakerdata").on('click',function(e){
+     e.preventDefault();
+  var path=this.href;
+       alert(path);
+       $.ajax({
+       type: "GET",
+       url: path,
+       dataType: JSON
+       }).done(function(res){
 
-
-// following code will operate when user enters notes
-  $("#noteForm").submit(function(e){
-
-  e.preventDefault();
-    var note = $("#notes").val();
-   if (note  !== "")
-    {
-      $("#messageDiv").append(note+"<br>");
-      $("#notes").val("");
-
-    }
-
-   else
-     {
-       alert("Sorry You Have noting to Display");
-     }
+          $('#displaymode').append("<h3>Topic Id:"+res.id+"  <br>");
+       });
 
 
-  });
-}
-
-// Following function will get data from the topics form on the topics/index page and
-// create a new topic and append it back on the index page
-
-
-function popupFunction() {
-    var popup = document.getElementById("firstPopup");
-    popup.classList.toggle("show");
-}
+ })
+ });
