@@ -1,4 +1,4 @@
-$(document).on('load', function(){
+$(document).on('turbolinks:load', function(){
 // following function will operate when user submits new topic properties
 $("#topicForm").on("submit",function(e){
   var formdata = $(this).serialize();

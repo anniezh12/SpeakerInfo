@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 get '/users/most_lectures', to: 'users#user_with_most_lectures'
 get '/users/least_lectures', to: 'users#user_with_least_lectures'
 get '/speakers', to: 'welcome#displayspeakers'
+get '/welcome/jsondata', to: 'welcome#jsondata'
 # devise_for :users should come before resources :users
 
 
@@ -33,6 +34,7 @@ get '/speakers', to: 'welcome#displayspeakers'
  resources :topics
  get '/topics/next/:id', to: 'topics#next'
  get '/topics/previous/:id', to: 'topics#previous'
+
  # resources :topics, only:[:create,:show,:index] do
  #    #nested resources for forums
  #    resources :forums, only:[:new,:show,:index]

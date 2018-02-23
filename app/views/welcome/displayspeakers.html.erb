@@ -1,7 +1,7 @@
-<% if current_user && current_user.admin == false %>
+<% if current_user %>
 <p><b>Hi <%= current_user.name if current_user.name%>!</b> You Can Manage All Speakers Data Here</p>
-   <div id="displaymode"></div>
-<a href="/speakers" id="speakerdata">All Speakers"</a>
+   <div class="displaymode"><ol></ol></div>
+<a id="speakerdata" href="/welcome/jsondata">All Speakers</a>
 <button name="speakers_mostLectures">Mostly Heard</button>
 <button name="speakers_leastLectures">Least Heard</button>
 <button name="speakers_data">All Speakers</button>
