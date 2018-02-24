@@ -9,8 +9,7 @@ $("#topicForm").on("submit",function(e){
     url: $(this).action,
     data: formdata
   }).done(function(newTopic){
-
-        $("#topicsdiv").append("<ul><li>"+ newTopic.title+"</li><li>"+newTopic.description+"</li><li>"+newTopic.date_of_event+"</li><li>"+newTopic.forum+"</li></ul>A new Topic has been created successfully!. Please refresh page to see it with all other lectures on the top of the page");
+    $("#messageDiv").append("<ul><li>Title: "+newTopic.title+"</li><li>"+newTopic.description+"</li><li>"+newTopic.date_of_event+"</li><li>"+newTopic.forum+"</li></ul>A new Topic has been created successfully!. Please refresh page to see it with all other lectures on the top of the page");
          formfields.reset();
 
     })

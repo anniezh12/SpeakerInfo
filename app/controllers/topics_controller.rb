@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
     end
 
       def new
-        #@topic = Topic.new
+        @topic = Topic.new
         @topics = current_user.topics
       end
 
@@ -38,12 +38,11 @@ class TopicsController < ApplicationController
                   #populating  Join Model "forumtopic", which joins a topic with its forum and change the value of its custom attribute  "ratings" which lies in the join table
 
             respond_to do |format|
-               format.html { render :show } # if no JSON take to show page
-               format.json { render json: @topic}
+               format.json { render json: @topic}# always put this on top otherwise youwill get show page as json value
+                format.html { render :show } # if no JSON take to show page
             end
           end
-
-              # redirect_to topics_path
+          # redirect_to topics_path
             else
                 flash[:message] = "All fields must be filled"
                 redirect_to new_topic_path(@topic)
@@ -51,9 +50,7 @@ class TopicsController < ApplicationController
           end
 
      def edit
-
        @topic = Topic.find(params[:id])
-
      end
 
       def update
@@ -78,27 +75,21 @@ class TopicsController < ApplicationController
 
       def next
         nextid= params[:id].to_i+1
-         @topic = Topic.find(nextid);
-
-              while !@topic
+             while (!Topic.exists?(id: nextid))
                 nextid = nextid+1
-                @topic = Topic.find(nextid);
               end
-
+              @topic = Topic.find(nextid);
         if @topic
           render json: @topic,status: 201
         end
       end
 
       def previous
-        nextid= params[:id].to_i-1
-         @topic = Topic.find(nextid);
-
-              while !@topic
-                nextid = nextid - 1
-                @topic = Topic.find(nextid);
-              end
-
+        previousid= params[:id].to_i-1
+        while (!Topic.exists?(id: previousid))
+           previousid = previousid-1
+         end
+        @topic = Topic.find(previousid);
         if @topic
           render json: @topic,status: 201
         end
