@@ -2,16 +2,21 @@
 
      $("#speakerdata").on("click",function(e){
      e.preventDefault();
-       alert(this.href);
-       $.get('/welcome/jsondata').done(function(json){
-         var $ol= $("div displaymode ol");//get the div from displayspeakers html
-         $ol.html("");//empty it
-          json.forEach(function(el){
-          $ol.append("<li>"+el.name+"</li>");
-       });
+
+       $.get('/users/').done(function(resp){
+console.log(resp)
+          //
+             resp.forEach((user)=>{
+
+               var mailTo= "mailto:"+user.email;
+
+             $('#displaymode ol').append("<li>Name: "+user.name+"    "+mailTo+"</a></li>")});
+
+
+        });
     })
  });
-});
+
 // $(document).ready(function(){
 //
 //     $("#speakerdata").on('click',function(e){

@@ -6,20 +6,18 @@ class WelcomeController < ApplicationController
     def displayspeakers
     end
 
-    def jsondata
-      @users = User.all
-
-      @topics = Topic.all
-
-
-          render json: @users,status: 201
-      
-      #  respond_to do |format|
-      #     format.html { render :index } # if no JSON take to show page
-      #     format.json { render json: @users}
-      #     end
-      #
-    end
+    # def jsondata
+    #   @users = User.all
+    #
+    #
+    #       #binding.pry
+    #  #render json: @user
+    #     respond_to do |format|
+    #          format.json { render json: @users.to_json(include: [:topic]) }
+    #          format.html { render :displayspeakers } # if no JSON take to show page
+    #       end
+    #
+    # end
 
 
 end

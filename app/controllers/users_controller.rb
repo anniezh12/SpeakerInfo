@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    respond_to do |format|
+         format.json { render json: @users }
+         format.html { render :index } # if no JSON take to show page
+      end
+
   end
 
   def new
@@ -41,7 +46,7 @@ class UsersController < ApplicationController
       @user = User.find(User.user_with_least_lectures)
     end
 
-      
+
 
 private
 

@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load',function(){
 // following function will operate when user submits new topic properties
   var currentId = $("#hidden_id").val();
-  alert(currentId)
-$("#previous").on("click",function(e){
+  $("#previous").on("click",function(e){
   e.preventDefault();
    $.get(`/topics/previous/${currentId}`).done(function(resp){
     currentId = resp.id;
