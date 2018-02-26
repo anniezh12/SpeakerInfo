@@ -1,37 +1,24 @@
+function userObj(att){
+  this.id = att.id;
+  this.name = att.name;
+  this.email = att.email;
+}
+
+
+
  $(document).on('turbolinks:load',function(){
 
      $("#speakerdata").on("click",function(e){
-     e.preventDefault();
+       var user;
+       e.preventDefault();
+        $.get('/users').done(function(resp){
 
-       $.get('/users/').done(function(resp){
-console.log(resp)
-          //
-             resp.forEach((user)=>{
+      for(var i=0;i<resp.length;i++){
+               user = new userObj(resp[i]);
+            $('#displaymode ol').append("<li>Name: "+user.name+"<br>Email: "+user.email+"<br>Topics: "+
+            "</a></li>")
+          };
+          });
 
-               var mailTo= "mailto:"+user.email;
-
-             $('#displaymode ol').append("<li>Name: "+user.name+"    "+mailTo+"</a></li>")});
-
-
-        });
-    })
  });
-
-// $(document).ready(function(){
-//
-//     $("#speakerdata").on('click',function(e){
-//     e.preventDefault();
-//  var path=this.href;
-//       alert(path);
-//       $.ajax({
-//       type: "GET",
-//       url: path,
-//       dataType: JSON
-//       }).done(function(res){
-//
-//          $('#displaymode').append("<h3>Topic Id:"+res.id+"  <br>");
-//       });
-//
-//
-// })
-// });
+ });

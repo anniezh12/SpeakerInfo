@@ -1,4 +1,4 @@
 class TopicSerializer < ActiveModel::Serializer
   attributes :id,:title,:description,:date_of_event,:forum
-  belonds_to :user
+  belongs_to :user
 end

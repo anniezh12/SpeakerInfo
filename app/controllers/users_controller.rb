@@ -2,12 +2,14 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    respond_to do |format|
+    @user=User.first
+      respond_to do |format|
          format.json { render json: @users }
          format.html { render :index } # if no JSON take to show page
       end
 
   end
+
 
   def new
     @user = User.new
