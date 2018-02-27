@@ -2,8 +2,8 @@
 <p><b>Hi <%= current_user.name if current_user.name%>!</b> You Can Manage All Speakers Data Here</p>
    <div id="displaymode"><ol></ol></div>
 <button id="speakerdata" >All Speakers</button>
-<button name="speakers_mostLectures">Mostly Heard</button>
-<button name="speakers_leastLectures">Least Heard</button>
+<button id="speakers_mostLectures">Mostly Heard</button>
+<button id="speakers_leastLectures">Least Heard</button>
 <% else%>
  <p>Please Sign In, Only members can see this page</p>
  <a class="nav-link " href="/users/sign_in">Sign In </a>

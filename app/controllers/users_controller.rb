@@ -39,13 +39,19 @@ class UsersController < ApplicationController
     def user_with_most_lectures
       if User.all.count > 0
           @user = User.find(User.user_with_most_lectures)
+          render json: @user
       else
         redirect_to '/'
       end
     end
 
     def user_with_least_lectures
+      if User.all.count > 0
       @user = User.find(User.user_with_least_lectures)
+      render json: @user
+    else
+      redirect_to '/'
+    end
     end
 
 
