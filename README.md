@@ -1,6 +1,6 @@
 ## An Introduction
 
-Welcome to SpeakerInfo. This gem is designed for a non profit organization which helps people to find jobs by teaching them skills. They invite speakers to come and give lectures every week. To make their system more efficient and automated SpeakerInfo  will help the guest speakers to add their info and pick the date they want to speak, moreover it also provides the flexibility of Google-Omniauth for logging in purposes. In the app Speakers will be able to add their topics, descriptions and pick an existing category or create a new speaker category. Finally, SpeakerInfo will have the ability to specify a user as Admin in order to manage the data being entered by users.
+Welcome to SpeakerInfo. This gem is designed for a non profit organization which helps people to find jobs by teaching them skills. They invite speakers to come and give lectures every week. To make their system more efficient and automated SpeakerInfo  will help the guest speakers to add their info and pick the date they want to address, moreover it also provides the flexibility of Google-Omniauth for logging in purposes. In the app Speakers will be able to add their topics, descriptions and pick an existing category or create a new speaker category. Active Admin is being used for administrative tasks. Finally, SpeakerInfo uses ajax and jquery for Asynchronous JavaScript And XMLHttpRequest.
 
 ## Getting Startd
 
@@ -28,7 +28,7 @@ ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
 
 ## Integrating SpeakerInfo Into Your Application
 
-In the Gemfile of your application add the following line 
+In the Gemfile of your application add the following line
 
 
   gem 'SpeakerInfo'
@@ -42,4 +42,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/anniez
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
