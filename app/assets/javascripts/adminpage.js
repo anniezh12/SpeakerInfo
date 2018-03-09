@@ -8,11 +8,24 @@ function User(att){
 // User prototype function
 
 User.prototype.display = function(){
-$('#displaymode ol').append("<li><b>Name: </b>"+this.name+"<br><b>Email:</b> "+this.email+"<br><div id='topic'><b>Topics:</b></div></li>");
- var myTopics =[];
- myTopics = this.topics.sort(function(a,b){return a.title.toUpperCase() > b.title.toUpperCase()});
-myTopics.forEach((topic)=>{ $('#topic').append(" "+topic.title+"<br> ")});
+$('#displaymode ').append(`
+     <div class="panel-group">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+         ${this.name}
+            <b>Email:</b> ${this.email}
+        </div>
+         <div class="panel-body">
 
+    ${this.topics.map(topic => `<br>${topic.title}`).join('')}
+</div>
+      </div>
+
+  `);
+ var myTopics =[];
+
+ myTopics = this.topics.sort(function(a,b){return a.title.toUpperCase() > b.title.toUpperCase()});
+this.topics.forEach((topic)=>{ $('#topicsByUser').append(" "+topic.title+"<br> ")});
 }
 
  $(document).on('turbolinks:load',function(){
@@ -21,10 +34,11 @@ myTopics.forEach((topic)=>{ $('#topic').append(" "+topic.title+"<br> ")});
        var user;
        e.preventDefault();
        $.get('/users').done(function(resp){
-         resp.sort(function(a,b){return a.name.toUpperCase() > b.name.toUpperCase();});
+         resp.sort(function(a,b){return a.name < b.name;});
 
           for(var i=0;i<resp.length;i++){
                user = new User(resp[i]);
+
                user.display(); // call to the User prototype function
              };
           });
