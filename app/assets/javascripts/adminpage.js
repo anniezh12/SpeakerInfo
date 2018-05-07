@@ -34,13 +34,24 @@ this.topics.forEach((topic)=>{ $('#topicsByUser').append(" "+topic.title+"<br> "
        var user;
        e.preventDefault();
        $.get('/users').done(function(resp){
-         resp.sort(function(a,b){return a.name < b.name;});
+         resp  = resp.sort(function(a,b){
+           var firstName = a.name.toUpperCase();
+           var secName = b.name.toUpperCase();
+           if(firstName < secName){
+             return -1;
+         }
+            if(firstName > secName)
+            {
+              return 1;
+            }
+        return 0;
 
-          for(var i=0;i<resp.length;i++){
-               user = new User(resp[i]);
-
+          });
+          let response = resp.filter(el=>{if(el.topics.length>3) return el})
+          response.forEach(el=>{
+               user = new User(el);
                user.display(); // call to the User prototype function
-             };
+
           });
 
  });
@@ -68,3 +79,4 @@ this.topics.forEach((topic)=>{ $('#topicsByUser').append(" "+topic.title+"<br> "
      });
    });
   })
+});

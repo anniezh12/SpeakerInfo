@@ -17,6 +17,6 @@
 //= require datepicker.js
 //= require popup.js
 //= require popup2.js
-//= ajaxtopic
+//= require ajaxtopic.js
 //= ajaxNextPrevious
 //= require adminpage.js

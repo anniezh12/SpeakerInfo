@@ -3,7 +3,7 @@
  <% if current_user.checkallfields? %>
     <%if @topics.length >= 1%>
 
-      <p><h1>All Topics by <%= @user.name%></h1>
+      <p>All Topics by <%= @user.name%>
        <ul>
          <% c=0 %>
           <% @topics.each do |topic|%>
