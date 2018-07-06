@@ -1,4 +1,9 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  private
+ def after_confirmation_path_for(resource_name, resource)
+   redirect_to root_path
+ end
+
   # GET /resource/confirmation/new
   # def new
   #   super
