@@ -2,7 +2,5 @@
   "name": "speakerinfo",
   "private": true,
   "dependencies": "Apps helping our speakers",
-  "engines": {
-    "node": "8.9.0"
-  }
+  
 }
