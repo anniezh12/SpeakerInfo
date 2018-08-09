@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'active_model_serializers'
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -71,6 +72,3 @@ gem 'activeadmin', github: 'activeadmin'
     gem 'pg', '~> 0.18'
     #gem 'rails_12factor'
   end
-   group :development, :test do
-     gem 'sqlite3'
-   end
