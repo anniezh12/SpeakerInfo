@@ -1,6 +1,6 @@
 {
   "name": "speakerinfo",
   "private": true,
-  "dependencies": "Apps helping our speakers",
-  
+  "dependencies": {}
+
 }
