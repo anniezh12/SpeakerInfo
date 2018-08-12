@@ -12,7 +12,7 @@ Rails.application.configure do
 
   #add the following to make devise mailer work
     config.action_mailer.default_url_options =
-    { :host => 'localhost3000' }
+    { :host => 'infinite-caverns-66323.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.mail.com',
