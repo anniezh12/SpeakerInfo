@@ -1,15 +1,15 @@
 <div class="jumbotron">
   <div class="container">
-<table class ="noBorder">
+<table   >
     <%#= form_for @topic do |f|%>
     <%= form_tag topics_path,class:'control',  method: 'post' do %>
 
-          <tr><td class ="noBorder">Title: </td><td class ="noBorder"><%= text_field_tag :title %></td></tr>
-          <tr><td class ="noBorder">Description:</td><td class ="noBorder"> <%= text_area_tag :description%></td></tr>
-          <tr><td class ="noBorder">Date Of Lecture: </td><td class ="noBorder"><%=text_field_tag :date_of_event ,nil,placeholder: "MM/DD/YY"%></td></tr>
-          <tr><td class ="noBorder">Forum: </td><td class ="noBorder"><%= text_field_tag :forum%></td></tr>
-          <tr><td class ="noBorder">How do you rate this Forum(1-10): </td><td class ="noBorder"><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>
-          <tr><td class ="noBorder"></td><td class ="noBorder"><%= submit_tag%></td></tr>
+          <tr><td   >Title: </td><td   ><%= text_field_tag :title %></td></tr>
+          <tr><td   >Description:</td><td   > <%= text_area_tag :description%></td></tr>
+          <tr><td   >Date Of Lecture: </td><td   ><%=text_field_tag :date_of_event ,nil,placeholder: "MM/DD/YY"%></td></tr>
+          <tr><td   >Forum: </td><td   ><%= text_field_tag :forum%></td></tr>
+          <tr><td   >How do you rate this Forum(1-10): </td><td   ><%= text_field_tag :forum_rating, nil,placeholder: "Plese Rate"%></td></tr>
+          <tr><td   ></td><td   ><%= submit_tag%></td></tr>
 
     <%end%>
 </table>
