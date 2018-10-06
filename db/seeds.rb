@@ -11,4 +11,4 @@ Category.create(title: 'Seminar Leader',description:'Any expert on a particular 
 Forum.create(name: 'CSIX ',location: 'Saratoga ,Ca',number_of_speakers: 25,audience:4000)
 Forum.create(name: 'SJ Covention Center ',location: 'San Jose ,Ca',number_of_speakers: 10,audience:10000)
 
-AdminUser.create!(email: 'aniqaelahi@yahoo.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'aniqaelahi@yahoo.com', password: 'password', password_confirmation: 'password')  # if Rails.env.development?
