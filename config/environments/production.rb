@@ -10,14 +10,14 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  #add the following to make devise mailer work
+  #add the following to make devise mailer work(polar-harbor-16616.herokuapp.com)
     config.action_mailer.default_url_options =
-    { :host => 'polar-harbor-16616.herokuapp.com' }
+    { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.mail.com',
     port:                 587,
-    domain:               'example.com',
+    domain:               'heroku.com',
     user_name:            ENV['GMAIL_USERNAME'],
     password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
