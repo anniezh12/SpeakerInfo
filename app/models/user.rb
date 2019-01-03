@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
 
     devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
     devise :omniauthable, omniauth_providers: [:google_oauth2]
    has_many :topics
    # has_many forums, through: :topics
@@ -10,7 +10,8 @@ class User < ApplicationRecord
    belongs_to :category, optional: true #will help save the user upon signing up other wise it give an error of category must exist
 
    #has_many :speakerarchives, through: :topics
-
+ 
+  
  #accepts_nested_attributes_for :category, is actually equivalent to the following custom method
 
     def category_attributes=(category_attributes)

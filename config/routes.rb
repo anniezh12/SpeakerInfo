@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :forumtopics
   resources :forums
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"}
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => "registrations" }
     #,    :registrations => "registrations" }
 
 #  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -40,7 +40,7 @@ get '/welcome/jsondata', to: 'welcome#jsondata'
  #    resources :forums, only:[:new,:show,:index]
  # end
 
-
+  
   root 'welcome#index'
 
 

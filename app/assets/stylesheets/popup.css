@@ -51,9 +51,10 @@
 
 }
 .welcome-user{
+  font-weight: bold;
   float:right;
-  padding: 5 0 0 15;
-  color: #FFA500;
+  padding: 5 80 0 0;
+  color: black;
 
 }
 .link-class a{
@@ -65,7 +66,10 @@
     color: white;
     text-decoration: none;
     }
-
+.headings-style {
+    font-weight: bold;
+    color:#45bdc5;
+}
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;}

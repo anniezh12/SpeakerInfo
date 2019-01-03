@@ -1,2 +1,0 @@
-class SpeakersMailer < ApplicationMailer
-end

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
   def index
     @users = User.all
     @user=User.first
@@ -70,7 +72,6 @@ private
     def user_signin
       user_signed_in?
     end
-
 
 
 end
