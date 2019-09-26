@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
     gem 'rails_12factor'
   end
   group :development do
-     gem 'sqlite3'
+     gem 'sqlite3', '~> 1.3.0'
   end
 
 # Use Capistrano for deployment
