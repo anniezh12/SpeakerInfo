@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
  group :production do
     gem 'pg', '0.12.2'
     gem 'rails_12factor'
@@ -54,20 +54,21 @@ gem 'active_model_serializers'
 #   gem 'selenium-webdriver'
 # end
 
-group :development, :test do
+# group :development, :test do
 
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
+#   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+#   gem 'web-console', '>= 3.3.0'
+#   gem 'listen', '>= 3.0.5', '< 3.2'
+#   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+#   gem 'spring'
+#   gem 'spring-watcher-listen', '~> 2.0.0'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
   gem 'jquery-ui-rails', '5.0.0'
+
 # Adding Admin Model
 gem 'activeadmin', github: 'activeadmin'
 
@@ -75,7 +76,4 @@ gem 'activeadmin', github: 'activeadmin'
   gem 'omniauth'
   gem 'omniauth-google-oauth2'
 
-  # group :production do
-  #   gem 'pg', '~> 0.18'
-  #   #gem 'rails_12factor'
-  # end
+  
