@@ -33,7 +33,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-  gem 'sqlite3'
+ group :production do
+    gem 'pg', '0.12.2'
+  end
+  group :development do
+     gem 'sqlite3'
+  end
+ # gem 'sqlite3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
